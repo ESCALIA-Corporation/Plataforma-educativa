@@ -62,7 +62,7 @@ input:focus {
 .submit:hover {
   background-color: var(--light-emphasis);
   color: #fff;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 table {
