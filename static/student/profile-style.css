@@ -1,0 +1,20 @@
+body {
+  background-position: center;
+  background-color: #fff;
+  color: #000;
+}
+
+.i_content {
+  padding: 2%;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.i_container {
+  margin-top: 10%;
+}
+
+.info-head {
+  padding-top: 50px;
+}

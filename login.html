@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesion | Asesorias Academicas</title>
+    <link rel="stylesheet" href="./static/Login_Stylesheets/login-style.css">
+    <link rel="stylesheet" href="./static/app-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="login_header">
+        <div class="logo_container">
+            <img class="logo_itsoeh" src="./static/library/logo/itsoeh_logo.png" alt="">
+            <img class="logo_educacion" src="./static/library/logo/educacion_logo.png" alt="">
+        </div>
+    </header>
+
+    <main class="login_container">
+        <div class="title_content">
+            <div class="titles">
+                <h1>ACCEDE A ASESORÍAS ACADEMICAS</h1>
+                <p>Portal Oficial del Instituto Tecnologico Superior del Occidente del Estado de Hidalgo, con el
+                    objetivo de que todos los estudiantes obtengan asesorias academicas</p>
+            </div>
+        </div>
+
+        <div class="log_form_container">
+            <div class="log-titles">
+                <h2>INICIA SESIÓN</h2>
+                <p>Puedes iniciar sesion para solicitar una nueva asesoria o registrate y tener acceso al portal</p>
+            </div>
+
+            <div class="log-controls">
+                <button class="submit" type="button" id="s_l-button">Alumno</button>
+                <button class="submit" type="button" id="t_l-button">Profesor</button>
+            </div>
+
+            <div class="student" id="s_l-panel">
+                <!-- FORM FOR AUTENTICATE USER -->
+                <form action="student/schedule.html" id="login-form">
+                    <p>Escribe tu usuario y contraseña:</p>
+                    <div class="placeholder">
+                        <input class="input" type="text" id="usuario" placeholder="Alumno"><!--required--->
+                        <input class="input" type="password" id="contraseña" placeholder="Contraseña"><!--required--->
+                    </div>
+                    <div class="log_form-controls">
+                        <button class="submit" type="submit">Iniciar Sesion</button>
+                        <a href="./templates/signup.html">
+                            <button class="submit" type="button">Registrarte</button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+            <div class="teacher" id="t_l-panel">
+                <form action="student/schedule.html" id="login-form">
+                    <p>Escribe tu usuario y contraseña:</p>
+                    <div class="placeholder">
+                        <input class="input" type="text" id="usuario" placeholder="Profesor"><!--required--->
+                        <input class="input" type="password" id="contraseña" placeholder="Contraseña"><!--required--->
+                    </div>
+                    <div class="log_form-controls">
+                        <button class="submit" type="submit">Iniciar Sesion</button>
+                        <a href="signup.html">
+                            <button class="submit" type="button">Registrarte</button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="./static/scripts/login-script.js"></script>
+</body>
+
+</html>

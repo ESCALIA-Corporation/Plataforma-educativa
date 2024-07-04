@@ -1,0 +1,159 @@
+<!--TEMPORALLY IS HTML TYPE BUT CHANGE THE NAME EXTENSION FOR TRY DATABASE-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse | Asesorias Academicas</title>
+    <link rel="stylesheet" href="/static/app-style.css">
+    <link rel="stylesheet" href="/static/Login_Stylesheets/signup-style.css">
+</head>
+
+<body>
+
+    <main>
+        <section class="white-place">
+
+        </section>
+        
+        <section class="signup-container" id="signup">
+            <div class="signup-titles">
+                <h2>REGISTRATE EN ASESORIAS</h2>
+                <figure>hola mundo</figure>
+                <br>
+                <p>Los alumnos y profesores se pueden registrat aqui, debe seleciona tu rol debajo</p>
+            </div>
+
+            <div class="s_selector" id="container">
+                <button id="b_students" class="submit">Alumnos</button>
+                <button id="b_teachers" class="submit">Profesores</button>
+            </div>
+            
+            <div id="c_students">
+                <form action="scripts/signup-script.php" class="signup-form" method="post">
+                    <div class="placehold-area">
+                        <div class="placeholder">
+                            <input id="matricula" type="text" name="matricula" placeholder="Matricula" required>
+                        </div>
+                    </div>
+                    <div class="placehold-area">
+                        <div class="placeholder">
+                            <input id="name" type="text" name="nombre" placeholder="Nombre" required>
+                        </div>
+                        <div class="placeholder">
+                            <input type="text" name="apaterno" placeholder="Apellido Paterno" required>
+                        </div>
+                        <div class="placeholder">
+                            <input type="text" name="amaterno" placeholder="Apellido Materno" required>
+                        </div>
+                        <div class="placeholder">
+                            <label>Sexo:</label>
+                            <input class="text" type="text" name="sexo" placeholder="Genero" required>
+                            <select id="genre" name="sexo" required>
+                                <option value="Masculino">Hombre</option>
+                                <option value="Femenino">Mujer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="placehold-area">
+                        <div class="placeholder">
+                            <input type="text" name="semestre" placeholder="Semestre" required>
+                        </div>
+                        <div class="placeholder">
+                            <input type="text" name="grupo" placeholder="Grupo" required>
+                        </div>
+                        <div class="placeholder">
+                            <p>Programa Educativo:</p>
+                            <input id="academic" type="text" name="programaedu" placeholder="Programa Educativo"
+                                required>
+                            <select id="academic" name="sexo" required>
+                                <option value="Gestion Empresarial">Gestion Empresarial</option>
+                                <option value="Sistemas Computacionales">Sistemas Computacionales</option>
+                                <option value="Arquitectura">Arquitectura</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="placehold-area">
+                        <div class="placeholder">
+                            <input type="text" name="usuario" placeholder="Usuario" required>
+                        </div>
+                        <div class="placeholder">
+                            <input type="password" name="contraseña" placeholder="Contraseña" required>
+                        </div>
+                        <div class="placeholder">
+                            <input type="password" name="confir-contraseña" placeholder="Contraseña" required>
+                        </div>
+                    </div>
+                    <div class="signup-controls">
+                        <button class="submit" type="submit">Registrarme</button>
+                        <a href="login.html">
+                            <button class="submit" type="button">Iniciar sesion</button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+            <div id="c_teachers">
+                <form action="scripts/signup-script.php" class="signup-form" method="post">
+                    <div class="placehold-area">
+                        <div class="placeholder">
+                            <input class="matricula" type="text" name="matricula" placeholder="Matricula" required>
+                        </div>
+                    </div>
+                    <div class="placehold-area">
+                        <div class="placeholder">
+                            <input type="text" name="nombre" placeholder="Nombre" required>
+                        </div>
+                        <div class="placeholder">
+                            <input type="text" name="apaterno" placeholder="Apellido Paterno" required>
+                        </div>
+                        <div class="placeholder">
+                            <input type="text" name="amaterno" placeholder="Apellido Materno" required>
+                        </div>
+                        <div class="placeholder">
+                            <p>Sexo:</p>
+                            <input class="text" type="text" name="sexo" placeholder="Genero" required>
+                            <select class="type" name="tipo">
+                                <option value="Masculino">Hombre</option>
+                                <option value="Femenino">Mujer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="placehold-area">
+                        <div class="placeholder">
+                            <p>Programa Educativo:</p>
+                            <input class="academic" type="text" name="programaedu" placeholder="Programa Educativo"
+                                required>
+                            <select id="academic" name="sexo" required>
+                                <option value="Gestion Empresarial">Gestion Empresarial</option>
+                                <option value="Sistemas Computacionales">Sistemas Computacionales</option>
+                                <option value="Arquitectura">Arquitectura</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="placehold-area">
+                        <div class="placeholder">
+                            <input type="text" name="usuario" placeholder="Usuario" required>
+                        </div>
+                        <div class="placeholder">
+                            <input type="password" name="contraseña" placeholder="Contraseña" required>
+                        </div>
+                        <div class="placeholder">
+                            <input type="password" name="confir-contraseña" placeholder="Contraseña" required>
+                        </div>
+                    </div>
+                    <div class="signup-controls">
+                        <button class="submit" type="submit">Registrarme</button>
+                        <a href="login.html">
+                            <button class="submit" type="button">Iniciar sesion</button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="../static/scripts/signup-script.js"></script>
+</body>
+
+</html>
