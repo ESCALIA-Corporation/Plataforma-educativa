@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/./static/stylesheets/template.css">
+    <link rel="stylesheet" href="/./static/stylesheets/administrator/access.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section class="sidebar" id="sidebar">
+        <div class="menu-box">
+            <button id="menu-button"><img src="/./static/pictures/template-icons/menu.svg" alt=""></button>
+        </div>
+        <ul class="menu">
+            <li class="item"><a href="/pages/administrator/dashboard.html">
+                    <button><img src="/./static/pictures/template-icons/dashboard.svg" alt="">
+                        <p>Dashboard</p>
+                    </button>
+                </a>
+            </li>
+            <li class="item">
+                <a href="/pages/administrator/administration.html">
+                    <button><img src="/./static/pictures/template-icons/settings.svg" alt="">
+                        <p>Administration</p>
+                    </button>
+                </a>
+            </li>
+            <li class="item"><button class="active">
+                    <img src="/./static/pictures/template-icons/admin-panel.svg" alt="">
+                    <p>Access</p>
+                </button>
+            </li>
+        </ul>
+        <ul class="sidebar-controls">
+            <a href="/index.html">
+                <li class="item">
+                    <button><img src="/./static/pictures/template-icons/logout.svg" alt="">
+                        <p>Logout</p>
+                    </button>
+                </li>
+            </a>
+            <li class="item"><button><img src="/./static/pictures/template-icons/person.svg" alt="">
+                    <p>Profile</p>
+                </button></li>
+        </ul>
+    </section>
+
+    <main class="content" id="content">
+        <section class="access-header">
+            <h2>Bienvenido a asesorias</h2>
+        </section>
+        <section class="description">
+            <p>Puedes Administar a los asesores registrados en la base de a continuacion editar sus datos o incluso
+                registar nuevos asesores</p>
+        </section>
+
+        <section class="access">
+            <div class="accounds-table">
+                <div class="controls">
+                    <a href="./registrer.html"><button class="submit">Nuevo Asesor</button></a>
+                    <button class="submit">Nuevo Administrador</button>
+                    <button class="submit">Nuevo Estudiante(Preview)</button>
+                </div>
+
+                <h3>Tabla de Roles</h3>
+
+                <form action="" method="GET">
+                    <th>Soy una tabla xd</th>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <ul class="links">
+                <li>Politicas de seguridad</li>
+                <li>Terminos de uso</li>
+            </ul>
+            <div class="credits">
+                <p>&#169 ESCALIA 2024</p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="/./static/scripts/main.js"></script>
+</body>
+
+</html>

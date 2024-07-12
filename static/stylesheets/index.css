@@ -1,0 +1,82 @@
+:root {
+  --light-background: #fff;
+  --light-color: #000000;
+  --dark-color: #FFFFFF;
+  --light-header-item: #FFFFFF;
+  --light-emphasis: #256eff;
+}
+
+body {
+  background-image: url(../library/backgrounds/login_background.jpg);
+  background-position: center;
+  background-color: var(--light-background);
+  color: var(--light-color);
+  height: 100vh;
+  font-size: 20px;
+  display: block !important;
+}
+
+.login-header {
+  background-color: var(--light-background);
+  display: flex;
+  height: 80px;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.login-header {
+  background-color: var(--light-background);
+  display: flex;
+  height: 80px;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.logo_itsoeh,
+.logo_educacion {
+  height: 80px;
+}
+
+.login {
+  background: linear-gradient(200deg, #181aa0, #450094);
+  background-position: center center;
+  padding: 0;
+  height: calc(100vh - 80px);
+  display: flex;
+  gap: 5px;
+}
+
+.title {
+  padding: 0 2%;
+  text-align: center;
+  align-content: center;
+  color: var(--dark-color);
+}
+
+.title > h1 {
+  padding: 1% 0;
+  font-size: 50px;
+  font-weight: lighter;
+}
+
+.formulary {
+  width: 55%;
+  padding: 80px 30px;
+  background-color: #fff;
+  text-align: center;
+  align-content: center;
+}
+
+.login-form {
+  padding: 0 3%;
+}
+
+.formulary .controls {
+  justify-content: center;
+}
+
+.login-form .controls {
+  justify-content: right;
+}

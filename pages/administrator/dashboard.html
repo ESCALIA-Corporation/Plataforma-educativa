@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Asesorias Academicas</title>
+    <link rel="stylesheet" href="/./static/stylesheets/administrator/dashboard.css">
+    <link rel="stylesheet" href="/./static/stylesheets/template.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section class="sidebar" id="sidebar">
+        <div class="menu-box">
+            <button id="menu-button"><img src="/./static/pictures/template-icons/menu.svg" alt=""></button>
+        </div>
+        <ul class="menu">
+            <li class="item"><button class="active">
+                    <img src="/./static/pictures/template-icons/dashboard.svg" alt="">
+                    <p>Dashboard</p>
+                </button>
+            </li>
+            <li class="item">
+                <a href="/pages/administrator/administration.html">
+                    <button><img src="/./static/pictures/template-icons/settings.svg" alt="">
+                        <p>Administration</p>
+                    </button>
+                </a>
+            </li>
+            <li class="item">
+                <a href="/pages/administrator/access.html">
+                    <button><img src="/./static/pictures/template-icons/admin-panel.svg" alt="">
+                        <p>Access</p>
+                    </button>
+                </a>
+            </li>
+        </ul>
+        <ul class="sidebar-controls">
+            <a href="/index.html">
+                <li class="item">
+                    <button><img src="/./static/pictures/template-icons/logout.svg" alt="">
+                        <p>Logout</p>
+                    </button>
+                </li>
+            </a>
+            <li class="item"><button><img src="/./static/pictures/template-icons/person.svg" alt="">
+                    <p>Profile</p>
+                </button>
+            </li>
+        </ul>
+    </section>
+
+    <main class="content" id="content">
+        <section class="dash-header">
+            <h2>Bienvenido a asesorias</h2>
+        </section>
+        <section class="description">
+            <p>Este es el dashboard designado para el adminsitrador, diviertete</p>
+        </section>
+        <section class="dashboard">
+            <div class="dash-container">
+                <div class="asesories-table dash-into-container">
+                    <h3>Proximas Asesorias</h3>
+
+                    <form action="" method="GET">
+                        <table>
+                            <tr>
+                                <th>Hora</th>
+                                <th>Asesor</th>
+                                <th>Alumno</th>
+                                <th>Materia</th>
+                                <th>Horas</th>
+                            </tr>
+                            <tr>
+                                <td>Data 1</td>
+                                <td>Data 2</td>
+                                <td>Data 3</td>
+                            </tr>
+                            <tr>
+                                <td>Data 4</td>
+                                <td>Data 5</td>
+                                <td>Data 6</td>
+                            </tr>
+                            <tr>
+                                <td>Data 4</td>
+                                <td>Data 5</td>
+                                <td>Data 6</td>
+                            </tr>
+                        </table>
+                    </form>
+                    <div class="controls">
+                        <button class="submit">Generar Bitacora(Preview)</button>
+                        <button class="submit" id="new-assesory-button">Nueva Asesoria</button>
+                    </div>
+
+                    <div class="new-asesory" id="new-assesory-container">
+                        <h3>Registrar nueva asesoria</h3>
+
+                        <p>Puedes regsitrar una nueva asesoria para los estudiantes</p>
+
+                        <form action="">
+                            <div class="placeholder">
+                                <p>Tipo:</p>
+                                <select class="type" name="tipo">
+                                    <option value="Individual">Individual</option>
+                                    <option value="Grupal">Grupal</option>
+                                </select>
+                            </div>
+                            <div class="placeholder">
+                                <p>Folio:</p>
+                                <input class="input" type="password" id="contraseña" placeholder=" " required>
+                            </div>
+                            <div class="placeholder">
+                                <p>Semestre:</p>
+                                <input class="input" type="password" id="contraseña" placeholder=" " required>
+                            </div>
+                            <div class="placeholder">
+                                <p>Asignatura:</p>
+                                <input class="input" type="password" id="contraseña" placeholder=" " required>
+                            </div>
+                            <div class="placeholder">
+                                <p>Tema:</p>
+                                <input class="input" type="password" id="contraseña" placeholder=" " required>
+                            </div>
+                            <div class="placeholder">
+                                <p>Horario:</p>
+                                <select class="type" name="tipo">
+                                    <option value="Matutino">Matutino</option>
+                                    <option value="Vespertino">Vespertino</option>
+                                </select>
+                            </div>
+
+                            <div class="controls">
+                                <button class="submit" id="close-assesory-button">Cerrar</button>
+                                <button class="submit" type="submit">Crear</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="schedule dash-into-container">
+                    <h3>Horario de Asesores</h3>
+
+                    <form action="" method="GET">
+                        <th>hola</th>
+                    </form>
+                    <div class="controls">
+                        <button class="submit">Modificar Horarios</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dash-container">
+                <div class="access dash-into-container">
+                    <h3>Administracion de Accesso</h3>
+
+                    <div class="role">
+                        <div>
+                            <figure>[svg]</figure>
+                            <p>Administradores</p>
+                        </div>
+                        <div>
+                            <figure>[svg]</figure>
+                            <p>Profesores</p>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <a href="./access.html">
+                            <button class="submit">Administrar Acceso</button>
+                        </a>
+                        <a href="./registrer.html">
+                            <button class="submit">Registar Profesor</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="data-manage dash-into-container">
+                    <h3>Panel de administarcion de datos (Preview)</h3>
+
+                    <p>Adminsitra los datos que estan funcionando en la aplicacion y en caso de incongruencias editalo y
+                        borralo</p>
+                    <div class="controls">
+                        <button class="submit">ir a Panel</button>
+                    </div>
+                </div>
+            </div>
+            <div class="dash-container">
+                <div class="stadistics dash-into-container">
+                    <h3>Centro de Estadisticas (Preview)</h3>
+
+                    <p>(Vista previa de estaidticas)</p>
+                    <div class="controls">
+                        <button class="submit">Ver Estadisticas</button>
+                        <button class="submit">Export (Previwe)</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <!-- FOOTER INTO THE MAIN CONTAINER -->
+        <footer>
+            <ul class="links">
+                <li>Politicas de seguridad</li>
+                <li>Terminos de uso</li>
+            </ul>
+            <div class="credits">
+                <p>&#169 ESCALIA 2024</p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="/./static/scripts/main.js"></script>
+    <script src="/static/scripts/dashboard.js"></script>
+</body>
+
+</html>

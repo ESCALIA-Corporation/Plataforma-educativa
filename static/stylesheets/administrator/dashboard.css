@@ -1,0 +1,115 @@
+:root {
+  --light-background: #fff;
+  --light-color: #000000;
+  --dark-color: #ffffff;
+  --light-header-item: #ffffff;
+  --light-emphasis: #256eff;
+}
+
+.dash-header {
+  height: 200px;
+  background: linear-gradient(200deg, #181aa0, #450094);
+  color: var(--dark-color);
+  text-align: center;
+  align-content: center;
+}
+
+.dashboard {
+  background-color: var(--light-background);
+}
+
+.description {
+  padding: 30px;
+}
+
+.description > p {
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.dash-container {
+  display: flex;
+  gap: 1%;
+  padding: 8px 0;
+}
+
+.dash-into-container {
+  border: 1px solid #ffffff46;
+  background: linear-gradient(100deg, #ee01c644, #0030b344);
+  background-size: 2000px auto;
+  background-position: center;
+  padding: 15px;
+  text-align: center;
+  align-content: center;
+}
+
+.dash-into-container h3 {
+  padding: 10px 0;
+}
+
+.dash-into-container .controls {
+  justify-content: right;
+}
+
+.asesories-table {
+  width: 70%;
+}
+
+.access {
+  width: 50%;
+}
+
+.access .role {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.access .role div > figure {
+  margin: 2% 0;
+}
+
+.access .role > div {
+  width: 30%;
+  padding: 3% 1%;
+  margin: 1% 0;
+  background-color: #ffffff4d;
+}
+
+.schedule {
+  width: 30%;
+}
+
+.data-manage {
+  width: 50%;
+}
+
+.stadistics {
+  width: 100%;
+}
+
+.new-asesory {
+  align-content: center;
+  padding: 2% 0;
+  background-color: var(--light-background);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  z-index: 10;
+  display: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+@media screen and (max-width: 800px) {
+  .dash-container {
+    display: inline;
+  }
+
+  .dash-into-container {
+    margin: 5% 0;
+    padding: 1%;
+    width: 100%;
+  }
+}

@@ -1,7 +1,6 @@
 body {
-  background-image: url(../library/backgrounds/login_background.jpg);
+  background: linear-gradient(200deg, #181aa0, #450094);
   background-position: center;
-  background-color: #fff;
   color: #000;
 }
 
@@ -31,7 +30,6 @@ main {
   padding: 2% 0;
   display: flex;
   gap: 5px;
-
 }
 
 .input-area {

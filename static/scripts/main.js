@@ -1,5 +1,5 @@
-// TOGGLE SIDEBAR
-const menuBar = document.querySelector('#content nav .bx.bx-menu');
+// TOGGLE SIDEBAR TO EXPAND
+const menuBar = document.querySelector('#sidebar div #menu-button');
 const sidebar = document.getElementById('sidebar');
 
 menuBar.addEventListener('click', function () {
