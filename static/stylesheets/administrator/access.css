@@ -1,16 +1,19 @@
-.access {
+.access-header {
+  height: 200px;
+  background: linear-gradient(200deg, #181aa0, #450094);
+  color: var(--dark-color);
+  text-align: center;
+  align-content: center;
 }
 
 .accounds-table {
-  height: 500px;
   margin: 1%;
   border: 1px solid #ffffff46;
   background: linear-gradient(100deg, #ee01c644, #0030b344);
   background-size: 2000px auto;
   background-position: center;
   padding: 20px;
-  text-align: center;
-  align-content: center;
+
 }
 
 .accounds-table >.controls {

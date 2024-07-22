@@ -8,28 +8,24 @@
     <title>Registrarse | Asesorias Academicas</title>
     <link rel="stylesheet" href="/./static/stylesheets/template.css">
     <link rel="stylesheet" href="/./static/stylesheets/administrator/registrer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
     <main>
-        <section class="white-place">
-
+        <section class="main-title">
+            Registra un nuevo usuario
         </section>
         
         <section class="signup-container" id="signup">
-            <div class="signup-titles">
-                <h2>REGISTRATE EN ASESORIAS</h2>
-                <figure>hola mundo</figure>
-                <br>
-            </div>
-
-            <div class="s_selector" id="container">
-                <button id="b_students" class="submit">Asesor</button>
-                <button id="b_teachers" class="submit">Administrador</button>
+            <div class="role-selector" id="container">
+                <button id="button-assesor" class="submit">Asesor</button>
+                <button id="button-admin" class="submit">Administrador</button>
             </div>
             
-            <div id="c_students">
+            <div id="panel-registration-asesor">
                 <form action="scripts/signup-script.php" class="signup-form" method="post">
                     <div class="placehold-area">
                         <div class="placeholder">
@@ -92,7 +88,7 @@
                     </div>
                 </form>
             </div>
-            <div id="c_teachers">
+            <div id="panel-registration-admin">
                 <form action="scripts/signup-script.php" class="signup-form" method="post">
                     <div class="placehold-area">
                         <div class="placeholder">
@@ -152,7 +148,7 @@
         </section>
     </main>
 
-    <script src="../static/scripts/signup-script.js"></script>
+    <script src="/static/scripts/register.js"></script>
 </body>
 
 </html>

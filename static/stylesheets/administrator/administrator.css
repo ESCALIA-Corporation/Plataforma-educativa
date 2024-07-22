@@ -1,4 +1,13 @@
-main > section {
+.admin-header {
+  height: 200px;
+  background: linear-gradient(200deg, #181aa0, #450094);
+  color: var(--dark-color);
+  text-align: center;
+  align-content: center;
+}
+
+.admin > div {
+    margin: 1%;
+    padding: 1%;
     text-align: center;
-    align-content: center;
 }

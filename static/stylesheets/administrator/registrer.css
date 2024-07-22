@@ -2,20 +2,21 @@ body {
   background: linear-gradient(200deg, #181aa0, #450094);
   background-position: center;
   color: #000;
+  display: block;
 }
 
 main {
   display: flex;
   height: 100vh;
+  width: 100%;
 }
 
-.white-place {
-  width: 20%;
+.main-title {
+  width: 30%;
 }
 
 .signup-container {
-  width: 80%;
-  height: auto;
+  width: 70%;
   padding: 2%;
   background-color: #fff;
   align-content: center;
