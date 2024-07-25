@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | Asesorias Academicas</title>
-    <link rel="stylesheet" href="/./static/stylesheets/administrator/dashboard.css">
-    <link rel="stylesheet" href="/./static/stylesheets/template.css">
+    <link rel="stylesheet" href="/static/stylesheets/administrator/dashboard.css">
+    <link rel="stylesheet" href="/static/stylesheets/template.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
@@ -15,24 +15,24 @@
 <body>
     <section class="sidebar" id="sidebar">
         <div class="menu-box">
-            <button id="menu-button"><img src="/./static/pictures/template-icons/menu.svg" alt=""></button>
+            <button id="menu-button"><img src="/static/pictures/template-icons/menu.svg" alt=""></button>
         </div>
         <ul class="menu">
             <li class="item"><button class="active">
-                    <img src="/./static/pictures/template-icons/dashboard.svg" alt="">
+                    <img src="/static/pictures/template-icons/dashboard.svg" alt="">
                     <p>Dashboard</p>
                 </button>
             </li>
             <li class="item">
                 <a href="/pages/administrator/administration.html">
-                    <button><img src="/./static/pictures/template-icons/settings.svg" alt="">
+                    <button><img src="/static/pictures/template-icons/settings.svg" alt="">
                         <p>Administration</p>
                     </button>
                 </a>
             </li>
             <li class="item">
                 <a href="/pages/administrator/access.html">
-                    <button><img src="/./static/pictures/template-icons/admin-panel.svg" alt="">
+                    <button><img src="/static/pictures/template-icons/admin-panel.svg" alt="">
                         <p>Access</p>
                     </button>
                 </a>
@@ -41,14 +41,14 @@
         <ul class="sidebar-controls">
             <li class="item">
                 <a href="/index.html">
-                    <button><img src="/./static/pictures/template-icons/logout.svg" alt="">
+                    <button><img src="/static/pictures/template-icons/logout.svg" alt="">
                         <p>Logout</p>
                     </button>
                 </a>
             </li>
             <li class="item">
                 <a href="/pages/administrator/profile.html">
-                    <button><img src="/./static/pictures/template-icons/person.svg" alt="">
+                    <button><img src="/static/pictures/template-icons/person.svg" alt="">
                         <p>Profile</p>
                     </button>
                 </a>
@@ -104,36 +104,26 @@
 
                         <p>Puedes regsitrar una nueva asesoria para los estudiantes</p>
 
-                        <form action="">
-                            <div class="placeholder">
-                                <p>Tipo:</p>
-                                <select class="type" name="tipo">
-                                    <option value="Individual">Individual</option>
-                                    <option value="Grupal">Grupal</option>
-                                </select>
-                            </div>
+                        <form action="" method="post">
                             <div class="placeholder">
                                 <p>Folio:</p>
-                                <input class="input" type="password" id="contraseña" placeholder=" " required>
-                            </div>
-                            <div class="placeholder">
-                                <p>Semestre:</p>
-                                <input class="input" type="password" id="contraseña" placeholder=" " required>
-                            </div>
-                            <div class="placeholder">
-                                <p>Asignatura:</p>
-                                <input class="input" type="password" id="contraseña" placeholder=" " required>
+                                <input class="input" type="text" id="folio" placeholder=" " required>
                             </div>
                             <div class="placeholder">
                                 <p>Tema:</p>
-                                <input class="input" type="password" id="contraseña" placeholder=" " required>
+                                <input class="input" type="text" id="tema" placeholder=" " required>
                             </div>
                             <div class="placeholder">
                                 <p>Horario:</p>
-                                <select class="type" name="tipo">
-                                    <option value="Matutino">Matutino</option>
-                                    <option value="Vespertino">Vespertino</option>
-                                </select>
+                                <input class="input" type="text" id="horario" placeholder=" " required>
+                            </div>
+                            <div class="placeholder">
+                                <p>Fecha registro:</p>
+                                <input class="input" type="text" id="f-registro" placeholder=" " required>
+                            </div>
+                            <div class="placeholder">
+                                <p>Estatus:</p>
+                                <input class="input" type="text" id="estatus" placeholder=" " required>
                             </div>
 
                             <div class="controls">
@@ -172,9 +162,6 @@
                     <div class="controls">
                         <a href="./access.html">
                             <button class="submit">Administrar Acceso</button>
-                        </a>
-                        <a href="./registrer.html">
-                            <button class="submit">Registar Profesor</button>
                         </a>
                     </div>
                 </div>
@@ -216,7 +203,7 @@
         </footer>
     </main>
 
-    <script src="/./static/scripts/main.js"></script>
+    <script src="/static/scripts/main.js"></script>
     <script src="/static/scripts/dashboard.js"></script>
 </body>
 

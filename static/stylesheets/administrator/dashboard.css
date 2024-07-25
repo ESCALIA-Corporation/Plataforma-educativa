@@ -1,11 +1,3 @@
-:root {
-  --light-background: #fff;
-  --light-color: #000000;
-  --dark-color: #ffffff;
-  --light-header-item: #ffffff;
-  --light-emphasis: #256eff;
-}
-
 .dash-header {
   height: 200px;
   background: linear-gradient(200deg, #181aa0, #450094);

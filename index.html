@@ -34,12 +34,29 @@
             </div>
 
             <div class="placeholder controls">
-                <button class="submit" type="button" id="s_l-button">Alumno</button>
-                <button class="submit" type="button" id="t_l-button">Profesor</button>
+                <button class="submit" id="button-assesor">Profesor</button>
+                <button class="submit" id="button-admin">Administrador</button>
             </div>
 
-            <div class="login-form">
-                <h3>Escribe tu usuario y contraseña</h3>
+            <!-- Profesor -->
+            <div class="login-form" id="panel-login-asesor">
+                <h3>Profesor</h3>
+                <p>Escribe tu usuario y contraseña</p>
+                <form action="./pages/assesor/dashboard.html">
+                    <div class="placeholder">
+                        <input class="input" type="text" id="usuario" placeholder="Usuario"><!--required--->
+                        <input class="input" type="password" id="contraseña" placeholder="Contraseña"><!--required--->
+                    </div>
+                    <div class="placeholder controls">
+                        <button class="submit" type="submit">Iniciar Sesion</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Adminsitrador -->
+            <div class="login-form" id="panel-login-admin">
+                <h3>Administrador</h3>
+                <p>Escribe tu usuario y contraseña</p>
                 <form action="./pages/administrator/dashboard.html">
                     <div class="placeholder">
                         <input class="input" type="text" id="usuario" placeholder="Usuario"><!--required--->
@@ -50,11 +67,10 @@
                     </div>
                 </form>
             </div>
-            <div class="login-form">
-                <form action=""></form>
-            </div>
         </section>
     </main>
+
+    <script src="./static/scripts/index.js"></script>
 </body>
 
 </html>
