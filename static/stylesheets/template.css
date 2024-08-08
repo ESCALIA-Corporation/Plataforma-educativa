@@ -5,6 +5,7 @@
   box-sizing: border-box;
   font-family: "Comfortaa", "Century Gothic", Arial;
   text-decoration: none;
+  font-size: 16px;
 }
 
 :root {
@@ -12,7 +13,10 @@
   --light-color: #000000;
   --dark-color: #ffffff;
   --light-header-item: #ffffff;
+
   --light-emphasis: #256eff;
+  --light-emphasis-secundary: #6f18fce5;
+  --light-trasparent-background: #ffffffED;
 }
 
 body {
@@ -20,26 +24,36 @@ body {
 }
 
 h2 {
-  font-size: 34px;
+  font-size: 30px;
   font-weight: lighter;
 }
 
 input {
-  margin: 2% 0;
-  padding: 5px;
-  width: 80%;
-  max-width: 300px;
+  margin: 1% 0;
+  padding: 8px 5px;
+  width: 100%;
+  max-width: 320px;
   outline: none;
   background-color: transparent;
-  border: none;
+  color: var(--light-emphasis-secundary);
   text-align: center;
-  border-bottom: 2px solid #000;
-  font-size: 18px;
+  border: 1px solid rgb(201, 201, 255);
+  border-radius: 7px;
+  font-size: 16px;
 }
 
 input:focus {
-  border: none;
-  border-bottom: 1.5px solid blue;
+  border: 1px solid var(--light-emphasis-secundary);
+  color: var(--light-emphasis-secundary);
+}
+
+input:hover {
+  border: 1px solid var(--light-emphasis-secundary);
+  color: var(--light-emphasis-secundary);
+}
+
+input::placeholder {
+  color: var(--light-emphasis-secundary);
 }
 
 .controls {
@@ -53,9 +67,11 @@ input:focus {
 }
 
 .submit {
-  padding: 9px 14px;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 15px;
   background-color: var(--light-background);
-  border: 1px solid var(--light-emphasis);
+  border: 1px solid #8eb3ff;
 }
 
 .submit:hover {
@@ -150,7 +166,21 @@ input:focus {
   width: 60px;
 }
 
-/* TABLE STYLE */
+.emergent-sidebar {
+  align-content: center;
+  text-align: center;
+  padding: 2% 0;
+  background-color: var(--light-trasparent-background);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+/* GRID STYLE */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -158,8 +188,8 @@ table {
 
 table th {
   padding: 10px 0;
-  background-color: var(--light-emphasis);
-  color: #fff;
+  border-radius: 7px;
+  border-bottom: 1px solid var(--light-emphasis);
 }
 
 table td {
@@ -169,7 +199,7 @@ table td {
 /* FOOTER */
 footer {
   display: flex;
-  padding: 20px;
+  padding: 15px;
   background-color: var(--light-emphasis);
   color: #fff;
   justify-content: space-between;

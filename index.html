@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
 </head>
 
+
 <body>
     <header class="login-header">
         <div class="logo-container">
@@ -19,6 +20,13 @@
             <img class="logo_educacion" src="./static/pictures/index/educacion_logo.png" alt="">
         </div>
     </header>
+    <!--
+    <?php
+    echo "Esto es un texto generado por PHP.";
+    $nombre = "Juan";
+    echo "<p>Bienvenido, $nombre.</p>";
+    ?>
+-->
 
     <main class="login">
         <section class="title">
@@ -44,8 +52,8 @@
                 <p>Escribe tu usuario y contraseña</p>
                 <form action="./pages/assesor/dashboard.html">
                     <div class="placeholder">
-                        <input class="input" type="text" id="usuario" placeholder="Usuario"><!--required--->
-                        <input class="input" type="password" id="contraseña" placeholder="Contraseña"><!--required--->
+                        <input class="input" type="text" name="usuario" placeholder="usuario"><!--required--->
+                        <input class="input" type="password" name="contraseña" placeholder="contraseña"><!--required--->
                     </div>
                     <div class="placeholder controls">
                         <button class="submit" type="submit">Iniciar Sesion</button>
@@ -59,8 +67,8 @@
                 <p>Escribe tu usuario y contraseña</p>
                 <form action="./pages/administrator/dashboard.html">
                     <div class="placeholder">
-                        <input class="input" type="text" id="usuario" placeholder="Usuario"><!--required--->
-                        <input class="input" type="password" id="contraseña" placeholder="Contraseña"><!--required--->
+                        <input class="input" type="text" name="usuario" placeholder="Usuario"><!--required--->
+                        <input class="input" type="password" name="contraseña" placeholder="Contraseña"><!--required--->
                     </div>
                     <div class="placeholder controls">
                         <button class="submit" type="submit">Iniciar Sesion</button>

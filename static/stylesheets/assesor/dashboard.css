@@ -1,0 +1,53 @@
+.dash-header {
+  height: 200px;
+  background: linear-gradient(200deg, #181aa0, #450094);
+  color: var(--dark-color);
+  text-align: center;
+  align-content: center;
+}
+
+.dashboard {
+  background-color: var(--light-background);
+}
+
+.description {
+  padding: 30px;
+}
+
+.description > p {
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.dash-container {
+  display: flex;
+  gap: 1%;
+  padding: 8px 0;
+}
+
+.dash-into-container {
+  border: 1px solid #ffffff46;
+  border: 1px solid #ffffff46;
+  background: linear-gradient(100deg, #ee01c618, #0030b318);
+  background-size: 2000px auto;
+  background-position: center;
+  padding: 15px;
+  text-align: center;
+  align-content: center;
+}
+
+.dash-into-container h3 {
+  padding: 10px 0;
+}
+
+.dash-into-container .controls {
+  justify-content: right;
+}
+
+.asesories-table {
+  width: 70%;
+}
+
+.schedule {
+  width: 30%;
+}

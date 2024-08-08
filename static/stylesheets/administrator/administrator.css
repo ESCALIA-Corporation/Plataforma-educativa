@@ -7,7 +7,15 @@
 }
 
 .admin > div {
-    margin: 1%;
-    padding: 1%;
-    text-align: center;
+  margin: 1%;
+  padding: 1%;
+  text-align: center;
+}
+
+.emergent-sidebar {
+  width: 500px;
+}
+
+.emergent-sidebar .controls {
+  justify-content: right;
 }
