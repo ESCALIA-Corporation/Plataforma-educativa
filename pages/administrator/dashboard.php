@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php session_start(); ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,7 +42,7 @@
         </ul>
         <ul class="sidebar-controls">
             <li class="item">
-                <a href="/index.html">
+                <a href="/index.php">
                     <button><img src="/static/pictures/template-icons/logout.svg" alt="">
                         <p>Logout</p>
                     </button>
@@ -58,39 +60,29 @@
 
     <main class="content" id="content">
         <section class="dash-header">
-            <h2>Bienvenido de nuevo $USER</h2>
+            <?php
+
+            // Verificar si los valores existen en la sesión
+            if (isset($_SESSION['ID_user']) && isset($_SESSION['Nombre_user'])) {
+                $userId = $_SESSION['ID_user'];
+                $userName = $_SESSION['Nombre_user'];
+
+                echo "<h2>Bienvenido: $userName </h2>";
+            } else {
+                echo "No se encontraron datos de sesión. Por favor, inicie sesión.";
+            }
+
+            ?>
         </section>
         <section class="dashboard">
             <div class="dash-container">
                 <div class="asesories-table dash-into-container">
                     <h3>Proximas Asesorias</h3>
 
-                    <form action="" method="GET">
-                        <table>
-                            <tr>
-                                <th>Hora</th>
-                                <th>Asesor</th>
-                                <th>Alumno</th>
-                                <th>Materia</th>
-                                <th>Horas</th>
-                            </tr>
-                            <tr>
-                                <td>Data 1</td>
-                                <td>Data 2</td>
-                                <td>Data 3</td>
-                            </tr>
-                            <tr>
-                                <td>Data 4</td>
-                                <td>Data 5</td>
-                                <td>Data 6</td>
-                            </tr>
-                            <tr>
-                                <td>Data 4</td>
-                                <td>Data 5</td>
-                                <td>Data 6</td>
-                            </tr>
-                        </table>
-                    </form>
+                    <div class="get-asesories">
+                        <?php include __DIR__ . '/../../static/scripts/php/get/view-asesories.php'; ?>
+                    </div>
+
                     <div class="controls">
                         <button class="submit">Generar Bitacora(Preview)</button>
                         <button class="submit" id="new-assesory-button">Nueva Asesoria</button>
@@ -101,25 +93,21 @@
 
                         <p>Puedes regsitrar una nueva asesoria para los estudiantes</p>
 
-                        <form action="" method="post">
+                        <form action="/./static/scripts/php/post/new-asesory.php" method="post">
                             <div class="placeholder">
                                 <p>Folio:</p>
-                                <input class="input" type="text" id="folio" placeholder="Folio" required>
+                                <input class="input" type="text" name="folio" placeholder="Folio" required>
                             </div>
                             <div class="placeholder">
-                                <input class="input" type="text" id="tema" placeholder="Tema" required>
+                                <input class="input" type="text" name="tema" placeholder="Tema" required>
                             </div>
                             <div class="placeholder">
                                 <p>Horario:</p>
-                                <input class="input" type="text" id="horario" placeholder="Horario" required>
-                            </div>
-                            <div class="placeholder">
-                                <p>Fecha registro:</p>
-                                <input class="input" type="text" id="f-registro" placeholder="Fecha" required>
+                                <input class="input" type="text" name="horario" placeholder="Horario" required>
                             </div>
                             <div class="placeholder">
                                 <p>Estatus:</p>
-                                <input class="input" type="text" id="estatus" placeholder="Estado" required>
+                                <input class="input" type="text" name="estatus" placeholder="Estado" required>
                             </div>
 
                             <div class="controls">
@@ -147,11 +135,11 @@
 
                     <div class="role">
                         <div>
-                            <figure>[svg]</figure>
+                            <figure><img src="/static/pictures/administrator/admin.svg" alt="" style="height: 40px;"></figure>
                             <p>Administradores</p>
                         </div>
                         <div>
-                            <figure>[svg]</figure>
+                            <figure><img src="/static/pictures/administrator/school.svg" alt="" style="height:  40px;"></figure>
                             <p>Profesores</p>
                         </div>
                     </div>

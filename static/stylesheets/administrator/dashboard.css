@@ -84,6 +84,52 @@
   width: 450px;
 }
 
+/* FOR THE ASESORIES */
+.asesory-card {
+  width: 100%;
+  background: linear-gradient(100deg, #ee01c618, #0030b318);
+  border-radius: 7px;
+  margin: 10px 0;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.basic-data {
+  display: flex;
+  gap: 10px;
+}
+
+.basic-data p {
+  align-content: center;
+}
+
+.details-data {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.details-data  p {
+  font-size: 17px;
+}
+
+.status-asesory-span {
+  padding: 5px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  background-color: #0030b318;
+}
+
+.asesory-control {
+  border-radius: 30px;
+  padding: 7px 11px;
+  border: none;
+}
+
 @media screen and (max-width: 800px) {
   .dash-container {
     display: inline;
@@ -99,5 +145,22 @@
     top: 0;
     bottom: 0;
     width: 100%;
+  }
+
+  .asesory-card {
+    display: inline;
+  }
+  
+  .basic-data {
+    display: inline;
+  }
+
+  
+  .details-data {
+    display: inline;
+  }
+  
+  .details-data  p {
+    font-size: 17px;
   }
 }

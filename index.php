@@ -12,21 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
 </head>
 
-
 <body>
     <header class="login-header">
-        <div class="logo-container">
+        <div class="logo-contain
+        ¿r">
             <img class="logo_itsoeh" src="./static/pictures/index/itsoeh_logo.png" alt="">
             <img class="logo_educacion" src="./static/pictures/index/educacion_logo.png" alt="">
         </div>
     </header>
-    <!--
-    <?php
-    echo "Esto es un texto generado por PHP.";
-    $nombre = "Juan";
-    echo "<p>Bienvenido, $nombre.</p>";
-    ?>
--->
 
     <main class="login">
         <section class="title">
@@ -65,10 +58,10 @@
             <div class="login-form" id="panel-login-admin">
                 <h3>Administrador</h3>
                 <p>Escribe tu usuario y contraseña</p>
-                <form action="./pages/administrator/dashboard.html">
+                <form action="./static/scripts/php/index.php" method='POST'>
                     <div class="placeholder">
-                        <input class="input" type="text" name="usuario" placeholder="Usuario"><!--required--->
-                        <input class="input" type="password" name="contraseña" placeholder="Contraseña"><!--required--->
+                        <input class="input" type="text" name="adminusuario" placeholder="Usuario" required>
+                        <input class="input" type="password" name="admincontraseña" placeholder="Contraseña" required>
                     </div>
                     <div class="placeholder controls">
                         <button class="submit" type="submit">Iniciar Sesion</button>
