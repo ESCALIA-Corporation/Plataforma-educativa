@@ -14,8 +14,7 @@
 
 <body>
     <header class="login-header">
-        <div class="logo-contain
-        ¿r">
+        <div class="logo-container">
             <img class="logo_itsoeh" src="./static/pictures/index/itsoeh_logo.png" alt="">
             <img class="logo_educacion" src="./static/pictures/index/educacion_logo.png" alt="">
         </div>
