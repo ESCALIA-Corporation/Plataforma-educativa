@@ -1,6 +1,6 @@
 .dash-header {
   height: 200px;
-  background: linear-gradient(200deg, #181aa0, #450094);
+  background: linear-gradient(200deg, #6e71ff, #ae6bfa);
   color: var(--dark-color);
   text-align: center;
   align-content: center;
@@ -26,11 +26,12 @@
 }
 
 .dash-into-container {
-  border: 1px solid #ffffff46;
-  background: linear-gradient(100deg, #ee01c618, #0030b318);
+  /*border: 1px solid #002fff86;
+    border-radius: 6px;
+  background: linear-gradient(100deg, #ee01c618, #0030b318);*/
   background-size: 2000px auto;
   background-position: center;
-  padding: 15px;
+  padding: 10px;
   text-align: center;
   align-content: center;
 }
@@ -57,15 +58,22 @@
   gap: 10px;
 }
 
-.access .role div > figure {
-  margin: 2% 0;
+.access .role a {
+  width: 32%;
 }
 
-.access .role > div {
-  width: 30%;
-  padding: 3% 1%;
+.access .role a > button {
+  width: 100%;
+  padding: 4% 2%;
   margin: 1% 0;
   background-color: #ffffff4d;
+  border: 0.5px solid #16161646;
+}
+
+.access .role a > button:hover {
+  transition: 0.3s;
+  background-color: #cc88fa4d;
+  border: 0.5px solid #16161628;
 }
 
 .schedule {
@@ -87,11 +95,12 @@
 /* FOR THE ASESORIES */
 .asesory-card {
   width: 100%;
-  background: linear-gradient(100deg, #ee01c618, #0030b318);
-  border-radius: 7px;
-  margin: 10px 0;
-  padding: 15px;
   display: flex;
+  background: linear-gradient(100deg, #ee01c618, #0030b318);
+  border: 0.5px solid #1900ff63;
+  border-radius: 6px;
+  margin: 5px 0;
+  padding: 3px 12px;
   align-items: center;
   gap: 15px;
 }
@@ -112,12 +121,12 @@
   align-items: center;
 }
 
-.details-data  p {
-  font-size: 17px;
+.asesory-card p {
+  font-size: 15px;
 }
 
 .status-asesory-span {
-  padding: 5px 14px;
+  padding: 4px 14px;
   font-size: 14px;
   border: none;
   border-radius: 20px;
@@ -150,17 +159,16 @@
   .asesory-card {
     display: inline;
   }
-  
+
   .basic-data {
     display: inline;
   }
 
-  
   .details-data {
     display: inline;
   }
-  
-  .details-data  p {
+
+  .details-data p {
     font-size: 17px;
   }
 }

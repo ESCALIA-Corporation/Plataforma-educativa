@@ -18,7 +18,7 @@ if ($stmt === false) {
 $user = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 
 //var_dump($inputPassword, $user['Tipo']); // COMPARE THE QUERRY WITH THE POST DATA
-if ($user && $inputPassword === trim($user['Tipo'])) {
+if ($user && $inputPassword === trim($user['Contrasena'])) {
     $_SESSION['ID_user'] = $user['IdUsuario'];
     $_SESSION['Nombre_user'] = $user['Descripcion'];
 

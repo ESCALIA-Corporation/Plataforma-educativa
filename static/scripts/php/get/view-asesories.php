@@ -31,8 +31,7 @@ try {
             // CONTROLS
             echo '<div class="controls">';
                 echo '<button class="status-asesory-span">' . htmlspecialchars($row['Estatus']) . '</button>';
-                echo '<button class="asesory-control" style="background-color: yellow;">E</button>';
-                echo '<button class="asesory-control" style="background-color: red;">D</button>';
+                echo '<button class="asesory-control" style="background-color: yellow;">Asignar[BETA]</button>';
             echo '</div>';
         echo '</div>';
 

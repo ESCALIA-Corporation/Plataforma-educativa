@@ -25,7 +25,7 @@
                 </a>
             </li>
             <li class="item">
-                <a href="/pages/administrator/administration.html">
+                <a href="/pages/administrator/administration.php">
                     <button><img src="/static/pictures/template-icons/settings.svg" alt="">
                         <p>Administration</p>
                     </button>
@@ -38,7 +38,7 @@
             </li>
         </ul>
         <ul class="sidebar-controls">
-            <a href="/index.html">
+            <a href="/index.php">
                 <li class="item">
                     <button><img src="/static/pictures/template-icons/logout.svg" alt="">
                         <p>Logout</p>
@@ -46,7 +46,7 @@
                 </li>
             </a>
             <li class="item">
-                <a href="/pages/administrator/profile.html">
+                <a href="/pages/administrator/profile.php">
                     <button><img src="/static/pictures/template-icons/person.svg" alt="">
                         <p>Profile</p>
                     </button>
@@ -60,8 +60,7 @@
             <h2>Centro de administracion de accesso</h2>
         </section>
         <section class="description">
-            <p>Puedes Administar a los asesores registrados en la base de a continuacion editar sus datos o incluso
-                registar nuevos asesores</p>
+
         </section>
 
         <section class="access">
@@ -69,84 +68,53 @@
                 <div class="controls">
                     <button class="submit" id="new-assesor-button">Nuevo Asesor</button>
                     <button class="submit" id="new-admin-button">Nuevo Administrador</button>
-                    <button class="submit">Nuevo Estudiante(Preview)</button>
+                    <button class="submit" id="new-student-button">Nuevo Estudiante</button>
                 </div>
 
-                <h3>Tabla de Roles</h3>
+                <div class="get-asesors">
+                    <h3>Lista de Asesores</h3>
+                    <?php include __DIR__ . '/../../static/scripts/php/get/view-asesors.php'; ?>
+                </div>
 
-
-                <form action="" method="GET">
-                    <h3>Administradores</h3>
-                    <table>
-                        <tr>
-                            <th>ID</th>
-                            <th>Programa Educativo</th>
-                            <th>Nombre</th>
-                            <th>--</th>
-                            <th>--</th>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                    </table>
-                </form>
+                <div class="get-students">
+                    <h3>Lista de Estudiantes</h3>
+                    <?php include __DIR__ . '/../../static/scripts/php/get/view-students.php'; ?>
+                </div>
 
                 <div class="new-accound assesor emergent-sidebar" id="new-assesor-accound-container">
                     <h3>Registrar un nuevo Asesor academico</h3>
-                    <form action="" method="post">
+                    <form action="/static/scripts/php/post/new-asesor.php" method="post">
                         <div class="placeholder">
-                            <input id="name" type="text" name="nombre" placeholder="Nombre" required>
+                            <input id="name" type="text" name="Id-asesor" placeholder="ID de Asesor" required>
                         </div>
                         <div class="placeholder">
-                            <input type="text" name="apellido-paterno" placeholder="Apellido Paterno" required>
+                            <input type="text" name="nombre-asesor" placeholder="Nombre" required>
                         </div>
                         <div class="placeholder">
-                            <input type="text" name="apellido-materno" placeholder="Apellido Materno" required>
+                            <input type="text" name="apellido-p" placeholder="Apellido Paterno" required>
                         </div>
                         <div class="placeholder">
-                            <input class="text" type="text" name="sexo" placeholder="Genero" required>
-                            <select id="genre" name="sexo" required>
+                            <input type="text" name="apellido-m" placeholder="Apellido Materno" required>
+                        </div>
+                        <div class="placeholder">
+                            <select id="genre" name="genero" required>
                                 <option value="Masculino">Hombre</option>
                                 <option value="Femenino">Mujer</option>
                             </select>
                         </div>
-
                         <div class="placeholder">
                             <input type="text" name="telefono" placeholder="Telefono" required>
                         </div>
                         <div class="placeholder">
-                            <input type="text" name="email" placeholder="Correo Electronico" required>
+                            <input type="text" name="correo" placeholder="Correo Electronico" required>
                         </div>
                         <div class="placeholder">
-                            <input id="academic" type="text" name="programaedu" placeholder="Programa Educativo"
-                                required>
-                            <select id="academic" name="sexo" required>
-                                <option value="Gestion Empresarial">Gestion Empresarial</option>
-                                <option value="Sistemas Computacionales">Sistemas Computacionales</option>
-                                <option value="Arquitectura">Arquitectura</option>
+                            <select class="combobox" name="programa-educativo" required>
+                                <option value="1">Gestion Empresarial</option>
+                                <option value="2">Sistemas Computacionales</option>
+                                <option value="3">Arquitectura</option>
+                                <option value="4">Tecnologias de la Informacion y comunicaciones</option>
                             </select>
-                        </div>
-
-                        <div class="placeholder">
-                            <input type="text" name="usuario" placeholder="Usuario" required>
-                        </div>
-                        <div class="placeholder">
-                            <input type="password" name="contraseña" placeholder="Contraseña" required>
-                        </div>
-                        <div class="placeholder">
-                            <input type="password" name="confir-contraseña" placeholder="Contraseña" required>
                         </div>
 
                         <div class="signup-controls">
@@ -172,7 +140,6 @@
                             <input type="text" name="amaterno" placeholder="Apellido Materno" required>
                         </div>
                         <div class="placeholder">
-                            <input class="text" type="text" name="sexo" placeholder="Genero" required>
                             <select class="type" name="tipo">
                                 <option value="Masculino">Hombre</option>
                                 <option value="Femenino">Mujer</option>
@@ -180,12 +147,11 @@
                         </div>
 
                         <div class="placeholder">
-                            <input class="academic" type="text" name="programaedu" placeholder="Programa Educativo"
-                                required>
-                            <select id="academic" name="sexo" required>
-                                <option value="Gestion Empresarial">Gestion Empresarial</option>
-                                <option value="Sistemas Computacionales">Sistemas Computacionales</option>
-                                <option value="Arquitectura">Arquitectura</option>
+                            <select class="combobox" name="programa-educativo" required>
+                                <option value="1">Gestion Empresarial</option>
+                                <option value="2">Sistemas Computacionales</option>
+                                <option value="3">Arquitectura</option>
+                                <option value="4">Tecnologias de la Informacion y comunicaciones</option>
                             </select>
                         </div>
 
@@ -201,6 +167,52 @@
 
                         <div class="signup-controls">
                             <button class="submit" id="close-admin-button">Cancelar</button>
+                            <button class="submit" type="submit">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="new-accound student emergent-sidebar" id="new-student-accound-container">
+                    <h3>Registrar un nuevo Alumno</h3>
+                    <form action="/static/scripts/php/post/new-student.php" method="post">
+                        <div class="placeholder">
+                            <input class="matricula" type="text" name="matricula" placeholder="Matricula" required>
+                        </div>
+                        <div class="placeholder">
+                            <input type="text" name="nombre-estudiante" placeholder="Nombre" required>
+                        </div>
+                        <div class="placeholder">
+                            <input type="text" name="apellido-p" placeholder="Apellido Paterno" required>
+                        </div>
+                        <div class="placeholder">
+                            <input type="text" name="apellido-m" placeholder="Apellido Materno" required>
+                        </div>
+                        <div class="placeholder">
+                            <select class="type" name="genero">
+                                <option value="Masculino">Hombre</option>
+                                <option value="Femenino">Mujer</option>
+                            </select>
+                        </div>
+
+                        <div class="placeholder">
+                            <input type="text" name="semestre" placeholder="Semestre" required>
+                            <input type="text" name="grupo" placeholder="grupo" required>
+                            <select class="combobox" name="programa-educativo" required>
+                                <option value="1">Gestion Empresarial</option>
+                                <option value="2">Sistemas Computacionales</option>
+                                <option value="3">Arquitectura</option>
+                                <option value="4">Tecnologias de la Informacion y comunicaciones</option>
+                            </select>
+                        </div>
+
+                        <div class="placeholder">
+                            <select class="combobox" name="idusuario" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+
+                        <div class="signup-controls">
+                            <button class="submit" id="close-student-button">Cancelar</button>
                             <button class="submit" type="submit">Registrar</button>
                         </div>
                     </form>

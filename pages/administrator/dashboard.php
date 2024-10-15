@@ -26,14 +26,14 @@
                 </button>
             </li>
             <li class="item">
-                <a href="/pages/administrator/administration.html">
+                <a href="/pages/administrator/administration.php">
                     <button><img src="/static/pictures/template-icons/settings.svg" alt="">
                         <p>Administration</p>
                     </button>
                 </a>
             </li>
             <li class="item">
-                <a href="/pages/administrator/access.html">
+                <a href="/pages/administrator/access.php">
                     <button><img src="/static/pictures/template-icons/admin-panel.svg" alt="">
                         <p>Access</p>
                     </button>
@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li class="item">
-                <a href="/pages/administrator/profile.html">
+                <a href="/pages/administrator/profile.php">
                     <button><img src="/static/pictures/template-icons/person.svg" alt="">
                         <p>Profile</p>
                     </button>
@@ -67,11 +67,9 @@
                 $userId = $_SESSION['ID_user'];
                 $userName = $_SESSION['Nombre_user'];
 
-                echo "<h2>Bienvenido: $userName </h2>";
+                echo "<h2>Bienvenido $userName </h2>";
             } else {
-                echo "No se encontraron datos de sesión. Por favor, inicie sesión.";
             }
-
             ?>
         </section>
         <section class="dashboard">
@@ -84,7 +82,6 @@
                     </div>
 
                     <div class="controls">
-                        <button class="submit">Generar Bitacora(Preview)</button>
                         <button class="submit" id="new-assesory-button">Nueva Asesoria</button>
                     </div>
 
@@ -95,18 +92,15 @@
 
                         <form action="/./static/scripts/php/post/new-asesory.php" method="post">
                             <div class="placeholder">
-                                <p>Folio:</p>
                                 <input class="input" type="text" name="folio" placeholder="Folio" required>
                             </div>
                             <div class="placeholder">
                                 <input class="input" type="text" name="tema" placeholder="Tema" required>
                             </div>
                             <div class="placeholder">
-                                <p>Horario:</p>
                                 <input class="input" type="text" name="horario" placeholder="Horario" required>
                             </div>
                             <div class="placeholder">
-                                <p>Estatus:</p>
                                 <input class="input" type="text" name="estatus" placeholder="Estado" required>
                             </div>
 
@@ -134,17 +128,22 @@
                     <h3>Administracion de Accesso</h3>
 
                     <div class="role">
-                        <div>
-                            <figure><img src="/static/pictures/administrator/admin.svg" alt="" style="height: 40px;"></figure>
-                            <p>Administradores</p>
-                        </div>
-                        <div>
-                            <figure><img src="/static/pictures/administrator/school.svg" alt="" style="height:  40px;"></figure>
-                            <p>Profesores</p>
-                        </div>
+                        <a href="../administrator/administration.php">
+                            <button class="toadmin">
+                                <figure><img src="/static/pictures/administrator/admin.svg" alt="" style="height: 40px;"></figure>
+                                <p>Administradores</p>
+                            </button>
+                        </a>
+                        <a href="../administrator/administration.php">
+                            <button class="toadmin">
+                                <figure><img src="/static/pictures/administrator/school.svg" alt="" style="height: 40px;"></figure>
+                                <p>Profesores</p>
+                            </button>
+                        </a>
+
                     </div>
                     <div class="controls">
-                        <a href="./access.html">
+                        <a href="../administrator/administration.php">
                             <button class="submit">Administrar Acceso</button>
                         </a>
                     </div>
@@ -156,17 +155,6 @@
                         borralo</p>
                     <div class="controls">
                         <button class="submit">ir a Panel</button>
-                    </div>
-                </div>
-            </div>
-            <div class="dash-container">
-                <div class="stadistics dash-into-container">
-                    <h3>Centro de Estadisticas (Preview)</h3>
-
-                    <p>(Vista previa de estaidticas)</p>
-                    <div class="controls">
-                        <button class="submit">Ver Estadisticas</button>
-                        <button class="submit">Export (Previwe)</button>
                     </div>
                 </div>
             </div>

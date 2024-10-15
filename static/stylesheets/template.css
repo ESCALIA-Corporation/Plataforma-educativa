@@ -42,6 +42,27 @@ input {
   font-size: 16px;
 }
 
+select {
+  padding: 8px 5px; 
+  width: 100%;
+  max-width: 320px;
+  background-color: transparent;
+  border: 1px solid rgb(201, 201, 255);
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+select:hover {
+  padding: 8px 5px; 
+  width: 100%;
+  max-width: 320px;
+  background-color: transparent;
+  border: 1px solid var(--light-emphasis-secundary);
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+
 input:focus {
   border: 1px solid var(--light-emphasis-secundary);
   color: var(--light-emphasis-secundary);

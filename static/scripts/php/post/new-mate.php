@@ -2,17 +2,16 @@
 include __DIR__ . '/../connectiondb.php';
 
 //TODO: ADD THE EMPTY CELLS
-$Id_asesory = $_POST['folio'];
-$Topic = $_POST['tema'];
-$Schedule = $_POST['horario'];
-$Register_date = date("Y-m-d");
-$Status = $_POST['estatus'];
+$Id_mate = $_POST['id-materia'];
+$name_mate = $_POST['nombre-materia'];
+$credits = $_POST['creditos'];
+$semes = $_POST['semestre'];
 
 try {
-    $sql = "SP_I_ASESORIA ?, ?, ?, ?, ?, ?, ?";
+    $sql = "SP_I_ASIGNATURA ?, ?, ?, ?";
 
     // PARAMETER
-    $params = array($Id_asesory, 22011589, 'A', $Topic, $Schedule, $Register_date, $Status);
+    $params = array($Id_mate, $name_mate, $credits, $semes);
 
     // EXECUTE
     $stmt = sqlsrv_query($conn, $sql, $params);
@@ -21,7 +20,7 @@ try {
         throw new Exception(print_r(sqlsrv_errors(), true));
     }
 
-    header('Location: /./pages/administrator/dashboard.php');
+    header('Location: /./pages/administrator/administration.php');
 } catch (Exception $e) {
     echo "Error al insertar el registro: " . $e->getMessage();
 }

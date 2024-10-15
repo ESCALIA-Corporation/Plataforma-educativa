@@ -25,14 +25,14 @@
                 </a>
             </li>
             <li class="item">
-                <a href="/pages/administrator/administration.html">
+                <a href="/pages/administrator/administration.php">
                     <button><img src="/static/pictures/template-icons/settings.svg" alt="">
                         <p>Administration</p>
                     </button>
                 </a>
             </li>
             <li class="item">
-                <a href="/pages/administrator/access.html">
+                <a href="/pages/administrator/access.php">
                     <button><img src="/static/pictures/template-icons/admin-panel.svg" alt="">
                         <p>Access</p>
                     </button>
@@ -41,7 +41,7 @@
         </ul>
         <ul class="sidebar-controls">
             <li class="item">
-                <a href="/index.html">
+                <a href="/index.php">
                     <button><img src="/static/pictures/template-icons/logout.svg" alt="">
                         <p>Logout</p>
                     </button>
@@ -59,63 +59,26 @@
 
         </section>
         <section class="profile-header">
-            <form action="" method="get">
-                <table>
-                    <tr>
-                        <td>Nombre Completo</td>
-                    </tr>
-                    <tr>
-                        <td>Usuario</td>
-                    </tr>
-                    <tr>
-                        <td>Identificador</td>
-                    </tr>
-                </table>
-            </form>
+            <div class="get-profile-data">
+                <?php include __DIR__ . '/../../static/scripts/php/get/view-profile.php'; ?>
+            </div>
         </section>
 
-        <section class="profile">
-            <div class="information">
-                <form action="" method="get">
-                    <table>
-                        <tr>
-                            <td>row1</td>
-                        </tr>
-                        <tr>
-                            <td>row2</td>
-                        </tr>
-                        <tr>
-                            <td>row3</td>
-                        </tr>
-                        <tr>
-                            <td>row4</td>
-                        </tr>
-                        <tr>
-                            <td>row5</td>
-                        </tr>
-                        <tr>
-                            <td>row6</td>
-                        </tr>
-                        <tr>
-                            <td>row7</td>
-                        </tr>
-                        <tr>
-                            <td>row8</td>
-                        </tr>
-                    </table>
-                    <div class="controls">
-                        <button class="submit">Editar Datos</button>
-                        <button class="submit">Borrar Perfil</button>
-                    </div>
-                </form>
-            </div>
-            <div class="edit-profile">
-                
-            </div>
+        <section class="profile-controls">
+            <button class="submit">Modificar Perfil</button>
+            <button class="submit" style="background-color: red;">Eliminar Cuenta</button>
         </section>
 
         <footer class="escalia-sponsor">
-            Desarrollado por ESCALIA Studios
+            <h2>1.0 Version Estable - Happy Bite Collection</h2>
+            <br>
+            <P>Detalles de la version:</P>
+            <ul>
+                <li>- Integración con base de datos</li>
+                <li>- Cambio de apariencia</li>
+            </ul>
+            <br>
+            Puedes consultar los cambios proximos en la version de codigo abierto
         </footer>
     </main>
 

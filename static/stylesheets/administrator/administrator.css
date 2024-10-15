@@ -1,6 +1,6 @@
 .admin-header {
   height: 200px;
-  background: linear-gradient(200deg, #181aa0, #450094);
+  background: linear-gradient(200deg, #6e71ff, #ae6bfa);
   color: var(--dark-color);
   text-align: center;
   align-content: center;
@@ -18,4 +18,22 @@
 
 .emergent-sidebar .controls {
   justify-content: right;
+}
+
+.get-mates, .get-eduprogram {
+  margin: 10px 5px;
+}
+
+.mate-card {
+  margin: 10px 0;
+  padding: 10px 12px;
+  background: linear-gradient(100deg, #ee01c618, #0030b318);
+  color: var(--light-color);
+  border-radius: 7px;
+}
+
+.data {
+  padding: 8px 0;
+  display: flex;
+  justify-content: space-between;
 }

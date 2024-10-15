@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Administracion de datos | Plataforma Educativa</title>
     <link rel="stylesheet" href="/static/stylesheets/template.css">
     <link rel="stylesheet" href="/static/stylesheets/administrator/administrator.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,7 @@
                 </button>
             </li>
             <li class="item">
-                <a href="/pages/administrator/access.html">
+                <a href="/pages/administrator/access.php">
                     <button><img src="/static/pictures/template-icons/admin-panel.svg" alt="">
                         <p>Access</p>
                     </button>
@@ -38,7 +38,7 @@
             </li>
         </ul>
         <ul class="sidebar-controls">
-            <a href="/index.html">
+            <a href="/index.php">
                 <li class="item">
                     <button><img src="/static/pictures/template-icons/logout.svg" alt="">
                         <p>Logout</p>
@@ -46,7 +46,7 @@
                 </li>
             </a>
             <li class="item">
-                <a href="/pages/administrator/profile.html">
+                <a href="/pages/administrator/profile.php">
                     <button><img src="/static/pictures/template-icons/person.svg" alt="">
                         <p>Profile</p>
                     </button>
@@ -57,7 +57,7 @@
 
     <main class="content" id="content">
         <section class="admin-header">
-            <h2>Manage the data</h2>
+            <h2>Administracion de datos</h2>
         </section>
 
         <section class="admin">
@@ -71,48 +71,35 @@
 
             <div class="educative-program">
                 <h3>Programas Educativos Registrados</h3>
-                <form action="" method="get">
-                    <table>
-                        <tr>
-                            <th>ID</th>
-                            <th>Programa Educativo</th>
-                            <th>Jefe de Carrera</th>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                        <tr>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                    </table>
-                </form>
+
+                <div class="get-eduprogram">
+                    <?php include __DIR__ . '/../../static/scripts/php/get/view-eduprog.php'; ?>
+                </div>
+
                 <div class="controls">
                     <button class="submit" id="new-educative-program-button">Nuevo Pograma educativo</button>
                 </div>
 
-
                 <div class="new-educative-program emergent-sidebar" id="panel-educative-program">
                     <h3>Nuevo Programa educativo</h3>
-                    <form action="" method="post">
+                    <form action="/static/scripts/php//post/new-eduprogram.php" method="post">
                         <div class="placeholder">
-                            <p>Folio:</p>
                             <input class="input" type="text" name="id-edu-program" placeholder="Folio" required>
                         </div>
                         <div class="placeholder">
-                            <input class="input" type="text" name="name-edu-program" placeholder="Tema" required>
+                            <input class="input" type="text" name="clave-edu-program" placeholder="Clave" required>
                         </div>
                         <div class="placeholder">
-                            <p>Horario:</p>
-                            <input class="input" type="text" name="horario" placeholder="Jefe de Carrera" required>
+                            <input class="input" type="text" name="name-resp" placeholder="Nombre" required>
+                        </div>
+                        <div class="placeholder">
+                            <input class="input" type="text" name="responsable-pe" placeholder="Jefe de Carrera" required>
+                        </div>
+                        <div class="placeholder">
+                            <select class="combobox" name="idusuario" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
                         </div>
 
                         <div class="controls">
@@ -125,54 +112,28 @@
 
             <div class="asignature">
                 <h3>Materias actualmente registradas educativo</h3>
-                <form action="" method="get">
-                    <table>
-                        <tr>
-                            <th>ID asignatura</th>
-                            <th>Nombre</th>
-                            <th>Creditos</th>
-                            <th>Semestre</th>
-                        </tr>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                            <td>Data 4</td>
-                        </tr>
-                        <tr>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                            <td>Data 7</td>
-                            <td>Data 8</td>
-                        </tr>
-                        <tr>
-                            <td>Data 9</td>
-                            <td>Data 10</td>
-                            <td>Data 11</td>
-                            <td>Data 12</td>
-                        </tr>
-                    </table>
-                </form>
+
+                <div class="get-mates">
+                    <?php include __DIR__ . '/../../static/scripts/php/get/view-mates.php'; ?>
+                </div>
+
                 <div class="controls">
                     <button class="submit" id="new-assignature-button">Nueva Asignatura</button>
                 </div>
                 <div class="new-asignature emergent-sidebar" id="panel-asignature">
                     <h3>Nueva Asignatura</h3>
-                    <form action="" method="post">
+                    <form action="/static/scripts/php/post/new-mate.php" method="post">
                         <div class="placeholder">
-                            <p>Folio:</p>
-                            <input class="input" type="text" name="id-asegnature" placeholder="Folio" required>
+                            <input class="input" type="text" name="id-materia" placeholder="Folio" required>
                         </div>
                         <div class="placeholder">
-                            <input class="input" type="text" name="name-asginature" placeholder="Nombre" required>
+                            <input class="input" type="text" name="nombre-materia" placeholder="Nombre" required>
                         </div>
                         <div class="placeholder">
-                            <p>Horario:</p>
-                            <input class="input" type="text" name="horario" placeholder="Creditos" required>
+                            <input class="input" type="text" name="creditos" placeholder="Creditos" required>
                         </div>
                         <div class="placeholder">
-                            <p>Fecha registro:</p>
-                            <input class="input" type="text" name="f-registro" placeholder="Semestre" required>
+                            <input class="input" type="text" name="semestre" placeholder="Semestre" required>
                         </div>
 
                         <div class="controls">
@@ -183,7 +144,7 @@
                 </div>
             </div>
         </section>
-.
+        .
         <!-- 
         <section class="schedules">
             <h3>Cargar Horarios</h3>

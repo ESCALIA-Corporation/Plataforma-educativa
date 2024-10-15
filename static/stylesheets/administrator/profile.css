@@ -1,6 +1,6 @@
 .profile-head-bg {
   height: 100px;
-  background: linear-gradient(200deg, #181aa0, #450094);
+  background: linear-gradient(200deg, #6e71ff, #ae6bfa);
 }
 
 .profile-header,
@@ -20,7 +20,12 @@ table td {
 
 .escalia-sponsor {
   padding: 30px;
-  background-color: #151515;
+  background-color: #6e71ff;
   color: #fff;
-  justify-content: center;
+  display: block;
+}
+
+.escalia-sponsor h2 {
+  font-size: 20px;
+  font-weight: bold;
 }

@@ -15,3 +15,12 @@ document.getElementById("new-admin-button").addEventListener("click", function (
 document.getElementById("close-admin-button").addEventListener("click", function () {
     document.getElementById("new-admin-accound-container").style.display = "none";
 });
+
+document.getElementById("new-student-button").addEventListener("click", function () {
+    document.getElementById("new-student-accound-container").style.display = "block";
+});
+
+// HIDE THE PANEL WHEN USER CLICK ON CANCEL
+document.getElementById("close-student-button").addEventListener("click", function () {
+    document.getElementById("new-student-accound-container").style.display = "none";
+});
