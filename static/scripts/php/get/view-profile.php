@@ -5,6 +5,7 @@ session_start();
 if (isset($_SESSION['ID_user']) && isset($_SESSION['Nombre_user'])) {
     $userId = $_SESSION['ID_user'];
     $userName = $_SESSION['Nombre_user'];
+    $Id_programaedu = $_SESSION['Id_programaedu'];
 
     try {
         $sql = "SELECT * FROM USUARIO WHERE IdUsuario = $userId";

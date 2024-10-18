@@ -1,9 +1,10 @@
 <?php
 // TODO: CHANGE FOR A PROCEDURE QUERY
+// TODO: AUTENTICACION PARA ASESORES
+
 include __DIR__ . '/connectiondb.php';
 
 session_start();
-
 $inputUsername = trim($_POST['adminusuario']);
 $inputPassword = trim($_POST['admincontraseña']);
 
@@ -21,6 +22,7 @@ $user = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 if ($user && $inputPassword === trim($user['Contrasena'])) {
     $_SESSION['ID_user'] = $user['IdUsuario'];
     $_SESSION['Nombre_user'] = $user['Descripcion'];
+    $_SESSION['Id_programaedu'] = $user['IdPE'];
 
     header('Location: /./pages/administrator/dashboard.php');
     exit();

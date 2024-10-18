@@ -1,6 +1,7 @@
 <?php
 include __DIR__ . '/../connectiondb.php';
 
+
 try {
     $sql = "select * from vw_Programa_Educativo";
     $stmt = sqlsrv_query($conn, $sql);
