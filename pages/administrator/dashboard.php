@@ -22,20 +22,20 @@
         <ul class="menu">
             <li class="item"><button class="active">
                     <img src="/static/pictures/template-icons/dashboard.svg" alt="">
-                    <p>Dashboard</p>
+                    <p>Panel</p>
                 </button>
             </li>
             <li class="item">
                 <a href="/pages/administrator/administration.php">
                     <button><img src="/static/pictures/template-icons/settings.svg" alt="">
-                        <p>Administration</p>
+                        <p>Administracion</p>
                     </button>
                 </a>
             </li>
             <li class="item">
                 <a href="/pages/administrator/access.php">
                     <button><img src="/static/pictures/template-icons/admin-panel.svg" alt="">
-                        <p>Access</p>
+                        <p>Acceso</p>
                     </button>
                 </a>
             </li>
@@ -44,14 +44,14 @@
             <li class="item">
                 <a href="/index.php">
                     <button><img src="/static/pictures/template-icons/logout.svg" alt="">
-                        <p>Logout</p>
+                        <p>Salir</p>
                     </button>
                 </a>
             </li>
             <li class="item">
                 <a href="/pages/administrator/profile.php">
                     <button><img src="/static/pictures/template-icons/person.svg" alt="">
-                        <p>Profile</p>
+                        <p>Perfil</p>
                     </button>
                 </a>
             </li>
@@ -128,13 +128,13 @@
                     <h3>Administracion de Accesso</h3>
 
                     <div class="role">
-                        <a href="../administrator/administration.php">
+                        <a href="../administrator/access.php">
                             <button class="toadmin">
                                 <figure><img src="/static/pictures/administrator/admin.svg" alt="" style="height: 40px;"></figure>
                                 <p>Administradores</p>
                             </button>
                         </a>
-                        <a href="../administrator/administration.php">
+                        <a href="../administrator/access.php">
                             <button class="toadmin">
                                 <figure><img src="/static/pictures/administrator/school.svg" alt="" style="height: 40px;"></figure>
                                 <p>Profesores</p>
@@ -143,7 +143,7 @@
 
                     </div>
                     <div class="controls">
-                        <a href="../administrator/administration.php">
+                        <a href="../administrator/access.php">
                             <button class="submit">Administrar Acceso</button>
                         </a>
                     </div>
@@ -154,7 +154,9 @@
                     <p>Adminsitra los datos que estan funcionando en la aplicacion y en caso de incongruencias editalo y
                         borralo</p>
                     <div class="controls">
-                        <button class="submit">ir a Panel</button>
+                        <a href="../administrator/administration.php">
+                            <button class="submit">ir a Panel</button>
+                        </a>
                     </div>
                 </div>
             </div>

@@ -37,3 +37,12 @@
   display: flex;
   justify-content: space-between;
 }
+
+.container {
+   display: flex;
+   gap: 5px;
+}
+
+.educative-program, .asignature {
+  width: 50%;
+}

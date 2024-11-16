@@ -69,78 +69,80 @@
                 </form>
             </div>
 
-            <div class="educative-program">
-                <h3>Programas Educativos Registrados</h3>
+            <div class="container">
+                <div class="educative-program">
+                    <h3>Programas Educativos Registrados</h3>
 
-                <div class="get-eduprogram">
-                    <?php include __DIR__ . '/../../static/scripts/php/get/view-eduprog.php'; ?>
+                    <div class="get-eduprogram">
+                        <?php include __DIR__ . '/../../static/scripts/php/get/view-eduprog.php'; ?>
+                    </div>
+
+                    <div class="controls">
+                        <button class="submit" id="new-educative-program-button">Nuevo Pograma educativo</button>
+                    </div>
+
+                    <div class="new-educative-program emergent-sidebar" id="panel-educative-program">
+                        <h3>Nuevo Programa educativo</h3>
+                        <form action="/static/scripts/php//post/new-eduprogram.php" method="post">
+                            <div class="placeholder">
+                                <input class="input" type="text" name="id-edu-program" placeholder="Folio" required>
+                            </div>
+                            <div class="placeholder">
+                                <input class="input" type="text" name="clave-edu-program" placeholder="Clave" required>
+                            </div>
+                            <div class="placeholder">
+                                <input class="input" type="text" name="name-resp" placeholder="Nombre" required>
+                            </div>
+                            <div class="placeholder">
+                                <input class="input" type="text" name="responsable-pe" placeholder="Jefe de Carrera" required>
+                            </div>
+                            <div class="placeholder">
+                                <select class="combobox" name="idusuario" required>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                </select>
+                            </div>
+
+                            <div class="controls">
+                                <button class="submit" id="close-educative-program-button">Cancelar</button>
+                                <button class="submit" type="submit">Crear</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
-                <div class="controls">
-                    <button class="submit" id="new-educative-program-button">Nuevo Pograma educativo</button>
-                </div>
+                <div class="asignature">
+                    <h3>Materias actualmente registradas educativo</h3>
 
-                <div class="new-educative-program emergent-sidebar" id="panel-educative-program">
-                    <h3>Nuevo Programa educativo</h3>
-                    <form action="/static/scripts/php//post/new-eduprogram.php" method="post">
-                        <div class="placeholder">
-                            <input class="input" type="text" name="id-edu-program" placeholder="Folio" required>
-                        </div>
-                        <div class="placeholder">
-                            <input class="input" type="text" name="clave-edu-program" placeholder="Clave" required>
-                        </div>
-                        <div class="placeholder">
-                            <input class="input" type="text" name="name-resp" placeholder="Nombre" required>
-                        </div>
-                        <div class="placeholder">
-                            <input class="input" type="text" name="responsable-pe" placeholder="Jefe de Carrera" required>
-                        </div>
-                        <div class="placeholder">
-                            <select class="combobox" name="idusuario" required>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
-                        </div>
+                    <div class="get-mates">
+                        <?php include __DIR__ . '/../../static/scripts/php/get/view-mates.php'; ?>
+                    </div>
 
-                        <div class="controls">
-                            <button class="submit" id="close-educative-program-button">Cancelar</button>
-                            <button class="submit" type="submit">Crear</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+                    <div class="controls">
+                        <button class="submit" id="new-assignature-button">Nueva Asignatura</button>
+                    </div>
+                    <div class="new-asignature emergent-sidebar" id="panel-asignature">
+                        <h3>Nueva Asignatura</h3>
+                        <form action="/static/scripts/php/post/new-mate.php" method="post">
+                            <div class="placeholder">
+                                <input class="input" type="text" name="id-materia" placeholder="Folio" required>
+                            </div>
+                            <div class="placeholder">
+                                <input class="input" type="text" name="nombre-materia" placeholder="Nombre" required>
+                            </div>
+                            <div class="placeholder">
+                                <input class="input" type="text" name="creditos" placeholder="Creditos" required>
+                            </div>
+                            <div class="placeholder">
+                                <input class="input" type="text" name="semestre" placeholder="Semestre" required>
+                            </div>
 
-            <div class="asignature">
-                <h3>Materias actualmente registradas educativo</h3>
-
-                <div class="get-mates">
-                    <?php include __DIR__ . '/../../static/scripts/php/get/view-mates.php'; ?>
-                </div>
-
-                <div class="controls">
-                    <button class="submit" id="new-assignature-button">Nueva Asignatura</button>
-                </div>
-                <div class="new-asignature emergent-sidebar" id="panel-asignature">
-                    <h3>Nueva Asignatura</h3>
-                    <form action="/static/scripts/php/post/new-mate.php" method="post">
-                        <div class="placeholder">
-                            <input class="input" type="text" name="id-materia" placeholder="Folio" required>
-                        </div>
-                        <div class="placeholder">
-                            <input class="input" type="text" name="nombre-materia" placeholder="Nombre" required>
-                        </div>
-                        <div class="placeholder">
-                            <input class="input" type="text" name="creditos" placeholder="Creditos" required>
-                        </div>
-                        <div class="placeholder">
-                            <input class="input" type="text" name="semestre" placeholder="Semestre" required>
-                        </div>
-
-                        <div class="controls">
-                            <button class="submit" id="close-asignature-button">Cancelar</button>
-                            <button class="submit" type="submit">Crear</button>
-                        </div>
-                    </form>
+                            <div class="controls">
+                                <button class="submit" id="close-asignature-button">Cancelar</button>
+                                <button class="submit" type="submit">Crear</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>

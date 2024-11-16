@@ -19,7 +19,7 @@
         </div>
         <ul class="menu">
             <li class="item">
-                <a href="/pages/assesor/dashboard.html"><button>
+                <a href="/pages/assesor/dashboard.php"><button>
                         <img src="/static/pictures/template-icons/dashboard.svg" alt="">
                         <p>Dashboard</p>
                     </button>
@@ -41,7 +41,7 @@
         </ul>
         <ul class="sidebar-controls">
             <li class="item">
-                <a href="/index.html">
+                <a href="/index.php">
                     <button><img src="/static/pictures/template-icons/logout.svg" alt="">
                         <p>Logout</p>
                     </button>

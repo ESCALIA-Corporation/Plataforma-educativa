@@ -20,6 +20,7 @@ try {
         echo '<p> ' . htmlspecialchars($row['Nombre']) . '</p>';
         echo '<p> ' . htmlspecialchars($row['Creditos']) . '</p>';
         echo '<p> ' . htmlspecialchars($row['Semestre']) . '</p>';
+        echo '<button class="submit">Editar datos</button>';
         echo '</div>';
 
         // DETAILS

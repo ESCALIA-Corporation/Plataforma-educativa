@@ -17,7 +17,16 @@ if (isset($_SESSION['ID_user']) && isset($_SESSION['Nombre_user'])) {
             throw new Exception(print_r(sqlsrv_errors(), true));
         }
         // INIT HTML
-        echo '<div class="asesors-table">';
+        echo '<div class="students-table">';
+
+        echo '<div class="data">';
+        echo '<p>Matricula</p>';
+        echo '<p>Nombre</p>';
+        echo '<p>A. Paterno</p>';
+        //echo '<p>Apellido Materno</p>';
+        echo '<p>Correo</p>';
+
+        echo '</div>';
 
         while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
             echo '<div class="asesor-card">';

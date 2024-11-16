@@ -11,6 +11,12 @@ $telefono = $_POST['telefono'];
 $email = $_POST['correo'];
 $id_pe = $_POST['programa-educativo'];
 
+$IdUsuario int ,
+@Descripcion nchar(25),
+@Tipo nchar (15),
+@Usuario nchar (15),
+@Contrasena nchar (15)
+
 try {
     $sql = "SP_I_ASESOR ?, ?, ?, ?, ?, ?, ?, ?";
 

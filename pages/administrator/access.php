@@ -71,19 +71,26 @@
                     <button class="submit" id="new-student-button">Nuevo Estudiante</button>
                 </div>
 
-                <div class="get-asesors">
-                    <h3>Lista de Asesores</h3>
-                    <?php include __DIR__ . '/../../static/scripts/php/get/view-asesors.php'; ?>
-                </div>
+                <div class="container">
+                    <div class="get-asesors">
+                        <h3>Lista de Asesores</h3>
+                        <?php include __DIR__ . '/../../static/scripts/php/get/view-asesors.php'; ?>
+                    </div>
 
-                <div class="get-students">
-                    <h3>Lista de Estudiantes</h3>
-                    <?php include __DIR__ . '/../../static/scripts/php/get/view-students.php'; ?>
+                    <div class="get-students">
+                        <h3>Lista de Estudiantes</h3>
+                        <?php include __DIR__ . '/../../static/scripts/php/get/view-students.php'; ?>
+                    </div>
                 </div>
 
                 <div class="new-accound assesor emergent-sidebar" id="new-assesor-accound-container">
-                    <h3>Registrar un nuevo Asesor academico</h3>
+
+                    <div class="header-sidebar">
+                        <h3>Registrar un nuevo asesor academico</h3>
+                    </div>
+
                     <form action="/static/scripts/php/post/new-asesor.php" method="post">
+                        <h4>Datos Personales</h4>
                         <div class="placeholder">
                             <input id="name" type="text" name="Id-asesor" placeholder="ID de Asesor" required>
                         </div>
@@ -98,6 +105,7 @@
                         </div>
                         <div class="placeholder">
                             <select id="genre" name="genero" required>
+                                <option>Seleccione Genero</option>
                                 <option value="Masculino">Hombre</option>
                                 <option value="Femenino">Mujer</option>
                             </select>
@@ -105,16 +113,34 @@
                         <div class="placeholder">
                             <input type="text" name="telefono" placeholder="Telefono" required>
                         </div>
+                        <h4>Datos Escolares</h4>
                         <div class="placeholder">
                             <input type="text" name="correo" placeholder="Correo Electronico" required>
                         </div>
                         <div class="placeholder">
                             <select class="combobox" name="programa-educativo" required>
+                                <option>Seleccione Programa Educativo</option>
                                 <option value="1">Gestion Empresarial</option>
                                 <option value="2">Sistemas Computacionales</option>
                                 <option value="3">Arquitectura</option>
                                 <option value="4">Tecnologias de la Informacion y comunicaciones</option>
                             </select>
+                        </div>
+                        <h4>Datos de usuario</h4>
+                        <div class="placeholder">
+                            <input id="name" type="text" name="Id-user" placeholder="ID de usuario" required>
+                        </div>
+                        <div class="placeholder">
+                            <input id="name" type="text" name="descripcion" placeholder="Descripcion" required>
+                        </div>
+                        <div class="placeholder">
+                            <input id="name" type="text" name="tipo-de-usuario" placeholder="Tipo de Usuario" required>
+                        </div>
+                        <div class="placeholder">
+                            <input id="name" type="text" name="Usuario" placeholder="Nombre de Usuario" required>
+                        </div>
+                        <div class="placeholder">
+                            <input id="name" type="password" name="Contraseña" placeholder="Contraseña" required>
                         </div>
 
                         <div class="signup-controls">

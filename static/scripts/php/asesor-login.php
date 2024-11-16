@@ -4,8 +4,8 @@
 include __DIR__ . '/connectiondb.php';
 
 session_start();
-$inputUsername = trim($_POST['adminusuario']);
-$inputPassword = trim($_POST['admincontraseña']);
+$inputUsername = trim($_POST['asesorusuario']);
+$inputPassword = trim($_POST['asesorcontraseña']);
 
 $sql = "SELECT * FROM USUARIO WHERE Usuario = ?";
 $params = array($inputUsername);
@@ -23,7 +23,7 @@ if ($user && $inputPassword === trim($user['Contrasena'])) {
     $_SESSION['Nombre_user'] = $user['Descripcion'];
     $_SESSION['Id_programaedu'] = $user['IdPE'];
 
-    header('Location: /./pages/administrator/dashboard.php');
+    header('Location: /./pages/assesor/dashboard.php');
     exit();
 } else {
     echo "Usuario o contraseña incorrectos.";

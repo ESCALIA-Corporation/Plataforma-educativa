@@ -11,7 +11,6 @@ try {
 
     // INIT HTML
     echo '<div class="user-container">';
-
     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
         echo '<div class="asesory-card">';
 

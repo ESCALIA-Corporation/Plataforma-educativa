@@ -40,14 +40,14 @@
         </ul>
         <ul class="sidebar-controls">
             <li class="item">
-                <a href="/index.html">
+                <a href="/index.php">
                     <button><img src="/static/pictures/template-icons/logout.svg" alt="">
                         <p>Logout</p>
                     </button>
                 </a>
             </li>
             <li class="item">
-                <a href="/pages/assesor/profile.html">
+                <a href="/pages/assesor/profile.php">
                     <button><img src="/static/pictures/template-icons/person.svg" alt="">
                         <p>Profile</p>
                     </button>

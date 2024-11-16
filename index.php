@@ -42,10 +42,10 @@
             <div class="login-form" id="panel-login-asesor">
                 <h3>Profesor</h3>
                 <p>Escribe tu usuario y contraseña</p>
-                <form action="./pages/assesor/dashboard.html">
+                <form action="./static/scripts/php/asesor-login.php" method="POST">
                     <div class="placeholder">
-                        <input class="input" type="text" name="usuario" placeholder="usuario"><!--required--->
-                        <input class="input" type="password" name="contraseña" placeholder="contraseña"><!--required--->
+                        <input class="input" type="text" name="asesorusuario" placeholder="usuario"><!--required--->
+                        <input class="input" type="password" name="asesorcontraseña" placeholder="contraseña"><!--required--->
                     </div>
                     <div class="placeholder controls">
                         <button class="submit" type="submit">Iniciar Sesion</button>

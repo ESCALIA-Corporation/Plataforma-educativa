@@ -11,7 +11,7 @@
   border: 1px solid #ffffff46;
   background-size: 2000px auto;
   background-position: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 .accounds-table > .controls {
@@ -22,8 +22,8 @@
   width: 600px;
 }
 
-.get-asesors {
-  margin: 10px 5px;
+.get-asesors, .get-students {
+  margin: 8px 3px;
 }
 
 .asesor-card {
@@ -38,4 +38,12 @@
   padding: 8px 0;
   display: flex;
   justify-content: space-between;
+}
+
+.container {
+  display: flex;
+}
+
+.get-asesors, .get-students {
+  width: 50%;
 }

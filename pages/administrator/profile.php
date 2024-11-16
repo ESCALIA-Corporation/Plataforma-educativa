@@ -65,8 +65,23 @@
         </section>
 
         <section class="profile-controls">
-            <button class="submit">Modificar Perfil</button>
-            <button class="submit" style="background-color: red;">Eliminar Cuenta</button>
+            <form action="/static/scripts/php/update/update-profile.php" method="post">
+                <div class="placeholder">
+                    <input class="input" type="text" name="n-descripcion" placeholder="Descripcion" required>
+                </div>
+                <div class="placeholder">
+                    <input class="input" type="text" name="tipo" placeholder="Tipo de Usuario" required>
+                </div>
+                <div class="placeholder">
+                    <input class="input" type="text" name="usuario" placeholder="Nombre de Usuario" required>
+                </div>
+                <div class="placeholder">
+                    <input class="input" type="text" name="contrasenaNueva" placeholder="Contraseña" required>
+                </div>
+
+                <button class="submit"  type="submit" >Modificar Perfil</button>
+                <button class="submit"style="background-color: red;">Eliminar Cuenta</button>
+            </form>
         </section>
 
         <footer class="escalia-sponsor">

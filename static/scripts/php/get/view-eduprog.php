@@ -17,11 +17,12 @@ try {
 
         // BASIC DATA
         echo '<div class="data">';
-        echo '<p>' . htmlspecialchars($row['IdPE']) . '</p>';
+        //echo '<p>' . htmlspecialchars($row['IdPE']) . '</p>';
         echo '<p> ' . htmlspecialchars($row['ClavePE']) . '</p>';
         echo '<p> ' . htmlspecialchars($row['Nombre']) . '</p>';
         echo '<p> ' . htmlspecialchars($row['Responsable']) . '</p>';
-        echo '<p> ' . htmlspecialchars($row['IdUsuario']) . '</p>';
+        //echo '<p> ' . htmlspecialchars($row['IdUsuario']) . '</p>';
+        echo '<button class="submit">Editar datos</button>';
         echo '</div>';
 
         // DETAILS
