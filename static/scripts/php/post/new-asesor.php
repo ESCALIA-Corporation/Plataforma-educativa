@@ -11,17 +11,17 @@ $telefono = $_POST['telefono'];
 $email = $_POST['correo'];
 $id_pe = $_POST['programa-educativo'];
 
-$IdUsuario int ,
-@Descripcion nchar(25),
-@Tipo nchar (15),
-@Usuario nchar (15),
-@Contrasena nchar (15)
+$IdUsuario = $_POST['Id-user'];
+$Descripcion = $_POST['descripcion'];
+$Tipo = $_POST['tipo-de-usuario'];
+$Usuario = $_POST['Usuario'];
+$Contrasena = $_POST['Contraseña'];
 
 try {
-    $sql = "SP_I_ASESOR ?, ?, ?, ?, ?, ?, ?, ?";
+    $sql = "SP_I_USER ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
 
     // PARAMETER
-    $params = array($Id_asesor, $nombre, $Apellido_p, $Apellido_m, $Sexo, $telefono, $email, $id_pe);
+    $params = array($Id_asesor, $nombre, $Apellido_p, $Apellido_m, $Sexo, $telefono, $email, $IdUsuario, $id_pe, $Descripcion, 'Asesor', $Usuario, $Contrasena);
 
     // EXECUTE
     $stmt = sqlsrv_query($conn, $sql, $params);

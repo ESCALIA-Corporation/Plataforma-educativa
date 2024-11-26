@@ -95,10 +95,16 @@
                                 <input class="input" type="text" name="folio" placeholder="Folio" required>
                             </div>
                             <div class="placeholder">
+                                <input class="input" type="text" name="matricula" placeholder="Matricula del Alumno" required>
+                            </div>
+                            <div class="placeholder">
                                 <input class="input" type="text" name="tema" placeholder="Tema" required>
                             </div>
                             <div class="placeholder">
                                 <input class="input" type="text" name="horario" placeholder="Horario" required>
+                            </div>
+                            <div class="placeholder">
+                                <input class="input" type="text" name="horas" placeholder="Horas por Semana" required>
                             </div>
                             <div class="placeholder">
                                 <input class="input" type="text" name="estatus" placeholder="Estado" required>
@@ -160,10 +166,7 @@
                     </div>
                 </div>
             </div>
-
         </section>
-
-
 
         <!-- FOOTER INTO THE MAIN CONTAINER -->
         <footer>

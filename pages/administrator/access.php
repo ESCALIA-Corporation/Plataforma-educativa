@@ -128,19 +128,19 @@
                         </div>
                         <h4>Datos de usuario</h4>
                         <div class="placeholder">
-                            <input id="name" type="text" name="Id-user" placeholder="ID de usuario" required>
+                            <input type="text" name="Id-user" placeholder="ID de usuario" required>
                         </div>
                         <div class="placeholder">
-                            <input id="name" type="text" name="descripcion" placeholder="Descripcion" required>
+                            <input type="text" name="descripcion" placeholder="Descripcion" required>
                         </div>
                         <div class="placeholder">
-                            <input id="name" type="text" name="tipo-de-usuario" placeholder="Tipo de Usuario" required>
+                            <input type="text" name="tipo-de-usuario" placeholder="Tipo de Usuario" required>
                         </div>
                         <div class="placeholder">
-                            <input id="name" type="text" name="Usuario" placeholder="Nombre de Usuario" required>
+                            <input type="text" name="Usuario" placeholder="Nombre de Usuario" required>
                         </div>
                         <div class="placeholder">
-                            <input id="name" type="password" name="Contraseña" placeholder="Contraseña" required>
+                            <input type="password" name="Contraseña" placeholder="Contraseña" required>
                         </div>
 
                         <div class="signup-controls">

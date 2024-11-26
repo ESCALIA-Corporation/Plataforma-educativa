@@ -46,4 +46,6 @@
 
 .get-asesors, .get-students {
   width: 50%;
+  max-height: 800px;
+  overflow-y: scroll;
 }

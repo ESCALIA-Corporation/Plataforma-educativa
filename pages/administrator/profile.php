@@ -66,16 +66,16 @@
 
         <section class="profile-controls">
             <form action="/static/scripts/php/update/update-profile.php" method="post">
-                <div class="placeholder">
+                <div class="profile-placeholder">
                     <input class="input" type="text" name="n-descripcion" placeholder="Descripcion" required>
                 </div>
-                <div class="placeholder">
+                <div class="profile-placeholder">
                     <input class="input" type="text" name="tipo" placeholder="Tipo de Usuario" required>
                 </div>
-                <div class="placeholder">
+                <div class="profile-placeholder">
                     <input class="input" type="text" name="usuario" placeholder="Nombre de Usuario" required>
                 </div>
-                <div class="placeholder">
+                <div class="profile-placeholder">
                     <input class="input" type="text" name="contrasenaNueva" placeholder="Contraseña" required>
                 </div>
 

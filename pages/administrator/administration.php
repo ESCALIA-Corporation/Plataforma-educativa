@@ -100,6 +100,7 @@
                                 <select class="combobox" name="idusuario" required>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
+                                    <option value="6">3</option>
                                 </select>
                             </div>
 
