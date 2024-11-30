@@ -20,20 +20,20 @@
         <ul class="menu">
             <li class="item"><a href="/pages/administrator/dashboard.php">
                     <button><img src="/static/pictures/template-icons/dashboard.svg" alt="">
-                        <p>Dashboard</p>
+                        <p>Panel</p>
                     </button>
                 </a>
             </li>
             <li class="item">
                 <a href="/pages/administrator/administration.php">
                     <button><img src="/static/pictures/template-icons/settings.svg" alt="">
-                        <p>Administration</p>
+                        <p>Administracion</p>
                     </button>
                 </a>
             </li>
             <li class="item"><button class="active">
                     <img src="/static/pictures/template-icons/admin-panel.svg" alt="">
-                    <p>Access</p>
+                    <p>Acceso</p>
                 </button>
             </li>
         </ul>
@@ -41,14 +41,14 @@
             <a href="/index.php">
                 <li class="item">
                     <button><img src="/static/pictures/template-icons/logout.svg" alt="">
-                        <p>Logout</p>
+                        <p>Salir</p>
                     </button>
                 </li>
             </a>
             <li class="item">
                 <a href="/pages/administrator/profile.php">
                     <button><img src="/static/pictures/template-icons/person.svg" alt="">
-                        <p>Profile</p>
+                        <p>Perfil</p>
                     </button>
                 </a>
             </li>
@@ -83,6 +83,11 @@
                     </div>
                 </div>
 
+                <div class="get-admins">
+                        <h3>Lista de Estudiantes</h3>
+                        <?php include __DIR__ . '/../../static/scripts/php/get/view-admins.php'; ?>
+                    </div>
+
                 <div class="new-accound assesor emergent-sidebar" id="new-assesor-accound-container">
 
                     <div class="header-sidebar">
@@ -91,9 +96,6 @@
 
                     <form action="/static/scripts/php/post/new-asesor.php" method="post">
                         <h4>Datos Personales</h4>
-                        <div class="placeholder">
-                            <input id="name" type="text" name="Id-asesor" placeholder="ID de Asesor" required>
-                        </div>
                         <div class="placeholder">
                             <input type="text" name="nombre-asesor" placeholder="Nombre" required>
                         </div>
@@ -128,13 +130,7 @@
                         </div>
                         <h4>Datos de usuario</h4>
                         <div class="placeholder">
-                            <input type="text" name="Id-user" placeholder="ID de usuario" required>
-                        </div>
-                        <div class="placeholder">
                             <input type="text" name="descripcion" placeholder="Descripcion" required>
-                        </div>
-                        <div class="placeholder">
-                            <input type="text" name="tipo-de-usuario" placeholder="Tipo de Usuario" required>
                         </div>
                         <div class="placeholder">
                             <input type="text" name="Usuario" placeholder="Nombre de Usuario" required>
@@ -152,43 +148,15 @@
 
                 <div class="new-accound admin emergent-sidebar" id="new-admin-accound-container">
                     <h3>Registrar un nuevo administrador</h3>
-                    <form action="" method="post">
+                    <form action="/static/scripts/php/post/new-admin.php" method="post">
                         <div class="placeholder">
-                            <input class="matricula" type="text" name="matricula" placeholder="Matricula" required>
+                            <input type="text" name="descripcion" placeholder="Descripcion" required>
                         </div>
-                        <div class="placeholder">
-                            <input type="text" name="nombre" placeholder="Nombre" required>
-                        </div>
-                        <div class="placeholder">
-                            <input type="text" name="apaterno" placeholder="Apellido Paterno" required>
-                        </div>
-                        <div class="placeholder">
-                            <input type="text" name="amaterno" placeholder="Apellido Materno" required>
-                        </div>
-                        <div class="placeholder">
-                            <select class="type" name="tipo">
-                                <option value="Masculino">Hombre</option>
-                                <option value="Femenino">Mujer</option>
-                            </select>
-                        </div>
-
-                        <div class="placeholder">
-                            <select class="combobox" name="programa-educativo" required>
-                                <option value="1">Gestion Empresarial</option>
-                                <option value="2">Sistemas Computacionales</option>
-                                <option value="3">Arquitectura</option>
-                                <option value="4">Tecnologias de la Informacion y comunicaciones</option>
-                            </select>
-                        </div>
-
                         <div class="placeholder">
                             <input type="text" name="usuario" placeholder="Usuario" required>
                         </div>
                         <div class="placeholder">
-                            <input type="password" name="contraseña" placeholder="Contraseña" required>
-                        </div>
-                        <div class="placeholder">
-                            <input type="password" name="confirm-contraseña" placeholder="Contraseña" required>
+                            <input type="text" name="contrasena" placeholder="Contraseña" required>
                         </div>
 
                         <div class="signup-controls">
@@ -227,13 +195,6 @@
                                 <option value="2">Sistemas Computacionales</option>
                                 <option value="3">Arquitectura</option>
                                 <option value="4">Tecnologias de la Informacion y comunicaciones</option>
-                            </select>
-                        </div>
-
-                        <div class="placeholder">
-                            <select class="combobox" name="idusuario" required>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
                             </select>
                         </div>
 

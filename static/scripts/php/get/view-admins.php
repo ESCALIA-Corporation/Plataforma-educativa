@@ -1,7 +1,7 @@
 <?php
 include __DIR__ . '/../connectiondb.php';
     try {
-        $sql = "SELECT IdAsesor, Nombre, ApellidoPaterno, Email FROM ASESOR "; /* WHERE IdPE = $Id_programaedu */
+        $sql = "SELECT IdUsuario, Descripcion, Usuario FROM USUARIO "; /* WHERE IdPE = $Id_programaedu */
         $stmt = sqlsrv_query($conn, $sql);
 
         if ($stmt === false) {
@@ -11,11 +11,10 @@ include __DIR__ . '/../connectiondb.php';
         echo '<div class="students-table">';
 
         echo '<div class="data">';
-        echo '<p>Matricula</p>';
-        echo '<p>Nombre</p>';
-        echo '<p>A. Paterno</p>';
+        echo '<p>ID</p>';
+        echo '<p>Descripcion</p>';
         //echo '<p>Apellido Materno</p>';
-        echo '<p>Correo</p>';
+        echo '<p>Usuario</p>';
 
         echo '</div>';
 
@@ -24,10 +23,9 @@ include __DIR__ . '/../connectiondb.php';
 
             // BASIC DATA
             echo '<div class="data">';
-            echo '<p>ID:' . htmlspecialchars($row['IdAsesor']) . '</p>';
-            echo '<p> ' . htmlspecialchars($row['Nombre']) . '</p>';
-            echo '<p> ' . htmlspecialchars($row['ApellidoPaterno']) . '</p>';
-            echo '<p> ' . htmlspecialchars($row['Email']) . '</p>';
+            echo '<p> ' . htmlspecialchars($row['IdUsuario']) . '</p>';
+            echo '<p> ' . htmlspecialchars($row['Descripcion']) . '</p>';
+            echo '<p> ' . htmlspecialchars($row['Usuario']) . '</p>';
             echo '</div>';
 
             // DETAILS

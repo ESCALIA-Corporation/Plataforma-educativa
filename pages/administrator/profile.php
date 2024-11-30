@@ -20,21 +20,21 @@
         <ul class="menu">
             <li class="item"><a href="/pages/administrator/dashboard.php">
                     <button><img src="/static/pictures/template-icons/dashboard.svg" alt="">
-                        <p>Dashboard</p>
+                        <p>Panel</p>
                     </button>
                 </a>
             </li>
             <li class="item">
                 <a href="/pages/administrator/administration.php">
                     <button><img src="/static/pictures/template-icons/settings.svg" alt="">
-                        <p>Administration</p>
+                        <p>Administracion</p>
                     </button>
                 </a>
             </li>
             <li class="item">
                 <a href="/pages/administrator/access.php">
                     <button><img src="/static/pictures/template-icons/admin-panel.svg" alt="">
-                        <p>Access</p>
+                        <p>Acceso</p>
                     </button>
                 </a>
             </li>
@@ -43,13 +43,13 @@
             <li class="item">
                 <a href="/index.php">
                     <button><img src="/static/pictures/template-icons/logout.svg" alt="">
-                        <p>Logout</p>
+                        <p>Salir</p>
                     </button>
                 </a>
             </li>
             <li class="item"><button class="active">
                     <img src="/static/pictures/template-icons/person.svg" alt="">
-                    <p>Profile</p>
+                    <p>Perfil</p>
                 </button>
             </li>
         </ul>

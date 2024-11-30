@@ -20,19 +20,19 @@
         <ul class="menu">
             <li class="item"><a href="/pages/administrator/dashboard.php">
                     <button><img src="/static/pictures/template-icons/dashboard.svg" alt="">
-                        <p>Dashboard</p>
+                        <p>Panel</p>
                     </button>
                 </a>
             </li>
             <li class="item"><button class="active">
                     <img src="/static/pictures/template-icons/settings.svg" alt="">
-                    <p>Administration</p>
+                    <p>Administracion</p>
                 </button>
             </li>
             <li class="item">
                 <a href="/pages/administrator/access.php">
                     <button><img src="/static/pictures/template-icons/admin-panel.svg" alt="">
-                        <p>Access</p>
+                        <p>Acceso</p>
                     </button>
                 </a>
             </li>
@@ -41,14 +41,14 @@
             <a href="/index.php">
                 <li class="item">
                     <button><img src="/static/pictures/template-icons/logout.svg" alt="">
-                        <p>Logout</p>
+                        <p>Salir</p>
                     </button>
                 </li>
             </a>
             <li class="item">
                 <a href="/pages/administrator/profile.php">
                     <button><img src="/static/pictures/template-icons/person.svg" alt="">
-                        <p>Profile</p>
+                        <p>Perfile</p>
                     </button>
                 </a>
             </li>
@@ -85,9 +85,6 @@
                         <h3>Nuevo Programa educativo</h3>
                         <form action="/static/scripts/php//post/new-eduprogram.php" method="post">
                             <div class="placeholder">
-                                <input class="input" type="text" name="id-edu-program" placeholder="Folio" required>
-                            </div>
-                            <div class="placeholder">
                                 <input class="input" type="text" name="clave-edu-program" placeholder="Clave" required>
                             </div>
                             <div class="placeholder">
@@ -95,13 +92,6 @@
                             </div>
                             <div class="placeholder">
                                 <input class="input" type="text" name="responsable-pe" placeholder="Jefe de Carrera" required>
-                            </div>
-                            <div class="placeholder">
-                                <select class="combobox" name="idusuario" required>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="6">3</option>
-                                </select>
                             </div>
 
                             <div class="controls">
@@ -125,9 +115,6 @@
                     <div class="new-asignature emergent-sidebar" id="panel-asignature">
                         <h3>Nueva Asignatura</h3>
                         <form action="/static/scripts/php/post/new-mate.php" method="post">
-                            <div class="placeholder">
-                                <input class="input" type="text" name="id-materia" placeholder="Folio" required>
-                            </div>
                             <div class="placeholder">
                                 <input class="input" type="text" name="nombre-materia" placeholder="Nombre" required>
                             </div>

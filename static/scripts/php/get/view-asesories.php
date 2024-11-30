@@ -30,7 +30,7 @@ try {
             // CONTROLS
             echo '<div class="controls">';
                 echo '<button class="status-asesory-span">' . htmlspecialchars($row['Estatus']) . '</button>';
-                echo '<button class="asesory-control" style="background-color: yellow;">Asignar[BETA]</button>';
+                echo '<button class="submit asesory-control">Asignar[BETA]</button>';
             echo '</div>';
         echo '</div>';
 

@@ -11,13 +11,12 @@ $semestre = $_POST['semestre'];
 $grupo = $_POST['grupo'];
 $fecha = '2003-03-04';
 $id_pe = $_POST['programa-educativo'];
-$idusuario = $_POST['id-usuario'];
 
 try {
-    $sql = "SP_I_ALUMNO ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
+    $sql = "SP_I_ALUMNO ?, ?, ?, ?, ?, ?, ?, ?, ?";
 
     // PARAMETER
-    $params = array($matricula, $nombre, $Apellido_p, $Apellido_m, $Sexo, $semestre, $grupo, $fecha, $id_pe, $idusuario);
+    $params = array($matricula, $nombre, $Apellido_p, $Apellido_m, $Sexo, $semestre, $grupo, $fecha, $id_pe);
 
     // EXECUTE
     $stmt = sqlsrv_query($conn, $sql, $params);

@@ -23,20 +23,6 @@
                     <p>Dashboard</p>
                 </button>
             </li>
-            <li class="item">
-                <a href="">
-                    <button><img src="" alt="">
-                        <p>Administration</p>
-                    </button>
-                </a>
-            </li>
-            <li class="item">
-                <a href="">
-                    <button><img src="" alt="">
-                        <p>Access</p>
-                    </button>
-                </a>
-            </li>
         </ul>
         <ul class="sidebar-controls">
             <li class="item">
