@@ -6,7 +6,7 @@ $idUsuario = $_SESSION['ID_user'];
 
 //$idUsuario = $_POST['idUsuario'];
 $descripcion = $_POST['n-descripcion'];
-$tipo = $_POST['tipo'];
+$tipo = 'Administrador';
 $usuario = $_POST['usuario'];
 $contrasenaNueva = $_POST['contrasenaNueva'];
 

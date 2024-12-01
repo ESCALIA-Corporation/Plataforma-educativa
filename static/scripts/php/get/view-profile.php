@@ -18,21 +18,16 @@ if (isset($_SESSION['ID_user']) && isset($_SESSION['Nombre_user'])) {
         echo '<div class="profile-container">';
 
         while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-            echo '<div class="profile-name-data">';
+            echo '<div class="profile-header">';
                 echo '<h2>' . htmlspecialchars($row['Descripcion']) . '</h2>';
             echo '</div>';
 
-            echo '<div class="profile-full-data">';
-
-            echo '<p>ID:' . htmlspecialchars($row['IdUsuario']) . '</p>';
-            echo '<p>Tipo de Usuario: ' . htmlspecialchars($row['Tipo']) . '</p>';
-            echo '<p>Usuario: ' . htmlspecialchars($row['Usuario']) . '</p>';
-            echo '<p>Contraseña: ' . htmlspecialchars($row['Contrasena']) . '</p>';
+            echo '<div class="profile-details">';
+                echo '<p><strong>ID:</strong> ' . htmlspecialchars($row['IdUsuario']) . '</p>';
+                echo '<p><strong>Tipo de Usuario:</strong> ' . htmlspecialchars($row['Tipo']) . '</p>';
+                echo '<p><strong>Usuario:</strong> ' . htmlspecialchars($row['Usuario']) . '</p>';
+                echo '<p><strong>Contraseña:</strong> ' . htmlspecialchars($row['Contrasena']) . '</p>';
             echo '</div>';
-
-            // DETAILS
-            // CONTROLS
-            
         }
         echo '</div>';
 
@@ -46,3 +41,4 @@ if (isset($_SESSION['ID_user']) && isset($_SESSION['Nombre_user'])) {
 } else {
     echo "<p>Necesitas autenticarte para ver esto...</p>";
 }
+?>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php session_start(); ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,12 +46,19 @@
 
     <main class="content" id="content">
         <section class="dash-header">
-            <h2>Hola de nuevo $USER$</h2>
-        </section>
-        <section class="description">
-            <p>Este es el dashboard designado para el profesor, diviertete</p>
-        </section>
+            <?php
 
+            // Verificar si los valores existen en la sesión
+            if (isset($_SESSION['ID_user']) && isset($_SESSION['Nombre_user'])) {
+                $userId = $_SESSION['ID_user'];
+                $userName = $_SESSION['Nombre_user'];
+
+                echo "<h2>Bienvenido $userName </h2>";
+            } else {
+            }
+            ?>
+        </section>
+        
         <section class="dashboard">
             <div class="dash-container">
                 <div class="asesories-table dash-into-container">

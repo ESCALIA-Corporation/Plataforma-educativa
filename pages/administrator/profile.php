@@ -58,30 +58,29 @@
         <section class="profile-head-bg">
 
         </section>
-        <section class="profile-header">
-            <div class="get-profile-data">
-                <?php include __DIR__ . '/../../static/scripts/php/get/view-profile.php'; ?>
-            </div>
-        </section>
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <section class="profile-header">
+                <div class="get-profile-data">
+                    <?php include __DIR__ . '/../../static/scripts/php/get/view-profile.php'; ?>
+                </div>
+            </section>
 
-        <section class="profile-controls">
-            <form action="/static/scripts/php/update/update-profile.php" method="post">
-                <div class="profile-placeholder">
-                    <input class="input" type="text" name="n-descripcion" placeholder="Descripcion" required>
-                </div>
-                <div class="profile-placeholder">
-                    <input class="input" type="text" name="tipo" placeholder="Tipo de Usuario" required>
-                </div>
-                <div class="profile-placeholder">
-                    <input class="input" type="text" name="usuario" placeholder="Nombre de Usuario" required>
-                </div>
-                <div class="profile-placeholder">
-                    <input class="input" type="text" name="contrasenaNueva" placeholder="Contraseña" required>
-                </div>
+            <section class="profile-controls">
+                <form action="/static/scripts/php/update/update-profile.php" method="post">
+                    <div class="profile-placeholder">
+                        <input class="input" type="text" name="n-descripcion" placeholder="Descripcion" required>
+                    </div>
+                    <div class="profile-placeholder">
+                        <input class="input" type="text" name="usuario" placeholder="Nombre de Usuario" required>
+                    </div>
+                    <div class="profile-placeholder">
+                        <input class="input" type="text" name="contrasenaNueva" placeholder="Contraseña" required>
+                    </div>
 
-                <button class="submit"  type="submit" >Modificar Perfil</button>
-                <button class="submit"style="background-color: red;">Eliminar Cuenta</button>
-            </form>
+                    <button class="submit" type="submit">Modificar Perfil</button>
+                    <button class="submit" style="background-color: red;">Eliminar Cuenta</button>
+                </form>
+        </div>
         </section>
 
         <footer class="escalia-sponsor">

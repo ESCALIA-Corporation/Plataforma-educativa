@@ -1,3 +1,34 @@
+<?php
+include __DIR__ . '/../../static/scripts/php/connectiondb.php';
+
+// Obtener las matrículas disponibles
+$matriculas = [];
+$matriculasSql = "SELECT Matricula FROM ALUMNO"; // Asegúrate de que la tabla sea correcta
+$matriculasStmt = sqlsrv_query($conn, $matriculasSql);
+
+if ($matriculasStmt === false) {
+    die(print_r(sqlsrv_errors(), true));
+}
+
+while ($row = sqlsrv_fetch_array($matriculasStmt, SQLSRV_FETCH_ASSOC)) {
+    $matriculas[] = $row['Matricula'];
+}
+
+$asignaturas = [];
+$asignaturasSql = "SELECT IdAsignatura, Nombre FROM ASIGNATURA"; // Asegúrate de que la tabla sea correcta
+$asignaturasStmt = sqlsrv_query($conn, $asignaturasSql);
+
+if ($asignaturasStmt === false) {
+    die(print_r(sqlsrv_errors(), true));
+}
+
+while ($row = sqlsrv_fetch_array($asignaturasStmt, SQLSRV_FETCH_ASSOC)) {
+    $asignaturas[] = $row; // Almacena el array completo
+}
+
+sqlsrv_close($conn);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,7 +93,7 @@
         <section class="dash-header">
             <?php
 
-            // Verificar si los valores existen en la sesión
+            // Verificar si los valores existen en la señsión
             if (isset($_SESSION['ID_user']) && isset($_SESSION['Nombre_user'])) {
                 $userId = $_SESSION['ID_user'];
                 $userName = $_SESSION['Nombre_user'];
@@ -91,12 +122,24 @@
                         <p>Puedes regsitrar una nueva asesoria para los estudiantes</p>
 
                         <form action="/./static/scripts/php/post/new-asesory.php" method="post">
-                            <div class="placeholder">
-                                <input class="input" type="text" name="folio" placeholder="Folio" required>
-                            </div>
-                            <div class="placeholder">
-                                <input class="input" type="text" name="matricula" placeholder="Matricula del Alumno" required>
-                            </div>
+                            <br>
+                            <select name="matricula" id="matricula" required>
+                                <option value="">Seleccione una matrícula</option>
+                                <?php foreach ($matriculas as $matricula): ?>
+                                    <option value="<?php echo htmlspecialchars($matricula); ?>"><?php echo htmlspecialchars($matricula); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <br>
+                            <br>
+                            <select name="asignatura" id="asignatura" required>
+                                <option value="">Seleccione una asignatura</option>
+                                <?php foreach ($asignaturas as $asignatura): ?>
+                                    <option value="<?php echo htmlspecialchars($asignatura['IdAsignatura']); ?>">
+                                        <?php echo htmlspecialchars($asignatura['Nombre']); ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                            <br>
                             <div class="placeholder">
                                 <input class="input" type="text" name="tema" placeholder="Tema" required>
                             </div>
@@ -105,9 +148,6 @@
                             </div>
                             <div class="placeholder">
                                 <input class="input" type="text" name="horas" placeholder="Horas por Semana" required>
-                            </div>
-                            <div class="placeholder">
-                                <input class="input" type="text" name="estatus" placeholder="Estado" required>
                             </div>
 
                             <div class="controls">
