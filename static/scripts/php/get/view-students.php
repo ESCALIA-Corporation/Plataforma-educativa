@@ -25,7 +25,7 @@ try {
 
         // BASIC DATA
         echo '<div class="data">';
-        echo '<p>ID:' . htmlspecialchars($row['Matricula']) . '</p>';
+        echo '<p>' . htmlspecialchars($row['Matricula']) . '</p>';
         echo '<p> ' . htmlspecialchars($row['Nombre']) . '</p>';
         echo '<p> ' . htmlspecialchars($row['ApellidoPaterno']) . '</p>';
         echo '<p> ' . htmlspecialchars($row['ApellidoMaterno']) . '</p>';

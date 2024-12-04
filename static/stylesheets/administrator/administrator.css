@@ -24,18 +24,20 @@
   margin: 10px 5px;
 }
 
-.mate-card {
-  margin: 10px 0;
-  padding: 10px 12px;
+.mate-card, .eduprogram-card {
+  margin: 5px 0;
+  padding: 3px 12px;
   background: linear-gradient(100deg, #ee01c618, #0030b318);
   color: var(--light-color);
   border-radius: 7px;
+  gap: 15px;
 }
 
 .data {
   padding: 8px 0;
   display: flex;
   justify-content: space-between;
+  align-items: center; 
 }
 
 .container {
@@ -45,4 +47,9 @@
 
 .educative-program, .asignature {
   width: 50%;
+}
+
+.get-mates, .get-eduprogram {
+  max-height: 800px;
+  overflow-y: scroll;
 }

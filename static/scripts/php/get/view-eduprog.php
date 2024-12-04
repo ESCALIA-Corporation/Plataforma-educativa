@@ -1,7 +1,6 @@
 <?php
 include __DIR__ . '/../connectiondb.php';
 
-
 try {
     $sql = "select * from vw_Programa_Educativo";
     $stmt = sqlsrv_query($conn, $sql);
@@ -17,12 +16,10 @@ try {
 
         // BASIC DATA
         echo '<div class="data">';
-        //echo '<p>' . htmlspecialchars($row['IdPE']) . '</p>';
         echo '<p> ' . htmlspecialchars($row['ClavePE']) . '</p>';
         echo '<p> ' . htmlspecialchars($row['Nombre']) . '</p>';
         echo '<p> ' . htmlspecialchars($row['Responsable']) . '</p>';
-        //echo '<p> ' . htmlspecialchars($row['IdUsuario']) . '</p>';
-        echo '<button class="submit">Editar datos</button>';
+        echo '<button class="submit open-edit-eduprog" data-id="' . htmlspecialchars($row['IdPE']) . '">Editar</button>';
         echo '</div>';
 
         // DETAILS
@@ -38,3 +35,4 @@ try {
 
 // Cerrar la conexión
 sqlsrv_close($conn);
+?>

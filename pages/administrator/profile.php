@@ -80,6 +80,7 @@
                     <button class="submit" type="submit">Modificar Perfil</button>
                     <button class="submit" style="background-color: red;">Eliminar Cuenta</button>
                 </form>
+            </section>
         </div>
         </section>
 

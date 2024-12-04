@@ -11,7 +11,7 @@ include __DIR__ . '/../connectiondb.php';
         echo '<div class="students-table">';
 
         echo '<div class="data">';
-        echo '<p>Matricula</p>';
+        echo '<p>ID Asesor</p>';
         echo '<p>Nombre</p>';
         echo '<p>A. Paterno</p>';
         //echo '<p>Apellido Materno</p>';
@@ -24,7 +24,7 @@ include __DIR__ . '/../connectiondb.php';
 
             // BASIC DATA
             echo '<div class="data">';
-            echo '<p>ID:' . htmlspecialchars($row['IdAsesor']) . '</p>';
+            echo '<p>' . htmlspecialchars($row['IdAsesor']) . '</p>';
             echo '<p> ' . htmlspecialchars($row['Nombre']) . '</p>';
             echo '<p> ' . htmlspecialchars($row['ApellidoPaterno']) . '</p>';
             echo '<p> ' . htmlspecialchars($row['Email']) . '</p>';

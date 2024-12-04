@@ -86,7 +86,7 @@
                 <div class="get-admins">
                         <h3>Lista de Estudiantes</h3>
                         <?php include __DIR__ . '/../../static/scripts/php/get/view-admins.php'; ?>
-                    </div>
+                    </div>+
 
                 <div class="new-accound assesor emergent-sidebar" id="new-assesor-accound-container">
 

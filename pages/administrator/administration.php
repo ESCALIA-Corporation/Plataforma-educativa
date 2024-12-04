@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -100,6 +101,26 @@
                             </div>
                         </form>
                     </div>
+
+                    <div class="emergent-sidebar" id="edit-panel-educative-program">
+                        <form action="/static/scripts/php/update/update-eduprog.php" method="post">
+                            <input type="hidden" name="idPE" value="<?php echo isset($row['IdPE']) ? htmlspecialchars($row['IdPE']) : ''; ?>">
+
+                            <label for="clavePE">Clave:</label>
+                            <input type="text" id="clavePE" name="clavePE" value="<?php echo isset($row['ClavePE']) ? htmlspecialchars($row['ClavePE']) : ''; ?>" required>
+
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" value="<?php echo isset($row['Nombre']) ? htmlspecialchars($row['Nombre']) : ''; ?>" required>
+
+                            <label for="responsable">Responsable:</label>
+                            <input type="text" id="responsable" name="responsable" value="<?php echo isset($row['Responsable']) ? htmlspecialchars($row['Responsable']) : ''; ?>" required>
+
+                            <input type="hidden" name="idUsuario" value="<?php echo isset($row['IdUsuario']) ? htmlspecialchars($row['IdUsuario']) : ''; ?>"> <!-- Asegúrate de incluir este campo -->
+
+                            <button type="submit">Actualizar</button>
+                        </form>
+                    </div>
+
                 </div>
 
                 <div class="asignature">
@@ -134,34 +155,6 @@
                 </div>
             </div>
         </section>
-        .
-        <!-- 
-        <section class="schedules">
-            <h3>Cargar Horarios</h3>
-            <form action="">
-                <p>Cargar Horariosn</p>
-            </form>
-        </section>
-
-        <section class="education-program">
-            <h3>Programa Educativo</h3>
-
-            <form action="">
-                <div class="placeholder">
-                    <p>Clave:</p>
-                    <input class="input" type="text" id="contraseña" placeholder=" " required>
-                </div>
-                <div class="placeholder">
-                    <p>Nombre:</p>
-                    <input class="input" type="text" id="contraseña" placeholder=" " required>
-                </div>
-                <div class="placeholder">
-                    <p>Responsable:</p>
-                    <input class="input" type="text" id="contraseña" placeholder=" " required>
-                </div>
-            </form>
-        </section>
-    -->
 
         <footer>
             <ul class="links">

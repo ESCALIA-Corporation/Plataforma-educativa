@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php session_start(); ?>
+<?php
+session_start();
+include __DIR__ . '/../../static/scripts/php/connectiondb.php';
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -58,42 +61,19 @@
             }
             ?>
         </section>
-        
+
         <section class="dashboard">
             <div class="dash-container">
                 <div class="asesories-table dash-into-container">
-                    <h3>Asesorias Asignadas para ti</h3>
 
-                    <form action="" method="GET">
-                        <table>
-                            <tr>
-                                <th>Hora</th>
-                                <th>Alumno</th>
-                                <th>Materia</th>
-                                <th>Horas</th>
-                            </tr>
-                            <tr>
-                                <td>Data 1</td>
-                                <td>Data 2</td>
-                                <td>Data 3</td>
-                            </tr>
-                            <tr>
-                                <td>Data 4</td>
-                                <td>Data 5</td>
-                                <td>Data 6</td>
-                            </tr>
-                            <tr>
-                                <td>Data 4</td>
-                                <td>Data 5</td>
-                                <td>Data 6</td>
-                            </tr>
-                        </table>
-                    </form>
-                    <div class="controls">
-                        <button class="submit">Generar Bitacora(Preview)</button>
-                        <button class="submit" id="new-assesory-button">Nueva Asesoria</button>
+                    <div class="get-assigments">
+                        <?php include __DIR__ . '/../../static/scripts/php/get/asesor/view-asigments.php'; ?>
+
+                        <form class="controls" action="/static/scripts/php/print/print-bitacory.php" method="post">
+                            <button type="submit">Generar PDF</button>
+                        </form>
+
                     </div>
-
                     <!-- NEW ASSESORY
                     <div class="new-asesory" id="new-assesory-container">
                         <h3>Registrar nueva asesoria</h3>

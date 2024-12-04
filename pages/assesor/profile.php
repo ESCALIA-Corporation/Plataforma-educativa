@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/static/stylesheets/assesor/profile.css">
+    <link rel="stylesheet" href="/static/stylesheets/administrator/profile.css">
     <link rel="stylesheet" href="/static/stylesheets/template.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,64 +42,32 @@
     </section>
     <main class="content" id="content">
         <section class="profile-head-bg">
-
-        </section>
-        <section class="profile-header">
-            <form action="" method="get">
-                <table>
-                    <tr>
-                        <td>Nombre Completo</td>
-                    </tr>
-                    <tr>
-                        <td>Usuario</td>
-                    </tr>
-                    <tr>
-                        <td>Identificador</td>
-                    </tr>
-                </table>
-            </form>
         </section>
 
-        <section class="profile">
-            <div class="information">
-                <form action="" method="get">
-                    <table>
-                        <tr>
-                            <td>row1</td>
-                        </tr>
-                        <tr>
-                            <td>row2</td>
-                        </tr>
-                        <tr>
-                            <td>row3</td>
-                        </tr>
-                        <tr>
-                            <td>row4</td>
-                        </tr>
-                        <tr>
-                            <td>row5</td>
-                        </tr>
-                        <tr>
-                            <td>row6</td>
-                        </tr>
-                        <tr>
-                            <td>row7</td>
-                        </tr>
-                        <tr>
-                            <td>row8</td>
-                        </tr>
-                    </table>
-                    <div class="controls">
-                        <button class="submit">Editar Datos</button>
-                        <button class="submit">Borrar Perfil</button>
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <section class="profile-header">
+                <div class="get-profile-data">
+                    <?php include __DIR__ . '/../../static/scripts/php/get/view-profile.php'; ?>
+                </div>
+            </section>
+
+            <section class="profile-controls">
+                <form action="/static/scripts/php/update/update-profile.php" method="post">
+                    <div class="profile-placeholder">
+                        <input class="input" type="text" name="n-descripcion" placeholder="Descripcion" required>
                     </div>
-                </form>
-            </div>
-        </section>
+                    <div class="profile-placeholder">
+                        <input class="input" type="text" name="usuario" placeholder="Nombre de Usuario" required>
+                    </div>
+                    <div class="profile-placeholder">
+                        <input class="input" type="text" name="contrasenaNueva" placeholder="Contraseña" required>
+                    </div>
 
-        <footer class="escalia-sponsor">
-            Desarrollado por ESCALIA Studios
-        </footer>
+                    <button class="submit" type="submit">Modificar Perfil</button>
+                    <button class="submit" style="background-color: red;">Eliminar Cuenta</button>
+                </form>
+            </section>
+        </div>
     </main>
 
     <script src="/static/scripts/main.js"></script>

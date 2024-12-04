@@ -26,6 +26,32 @@ while ($row = sqlsrv_fetch_array($asignaturasStmt, SQLSRV_FETCH_ASSOC)) {
     $asignaturas[] = $row; // Almacena el array completo
 }
 
+// Consultar la tabla ASESOR
+$asesores = [];
+$asesorSql = "SELECT IdAsesor, Nombre, ApellidoPaterno FROM ASESOR";
+$asesorStmt = sqlsrv_query($conn, $asesorSql);
+
+if ($asesorStmt === false) {
+    die(print_r(sqlsrv_errors(), true));
+}
+
+while ($row = sqlsrv_fetch_array($asesorStmt, SQLSRV_FETCH_ASSOC)) {
+    $asesores[] = $row;
+}
+
+// Consultar la tabla ASIGNATURA
+$asignaturas = [];
+$asignaturaSql = "SELECT IdAsignatura, Nombre FROM ASIGNATURA";
+$asignaturaStmt = sqlsrv_query($conn, $asignaturaSql);
+
+if ($asignaturaStmt === false) {
+    die(print_r(sqlsrv_errors(), true));
+}
+
+while ($row = sqlsrv_fetch_array($asignaturaStmt, SQLSRV_FETCH_ASSOC)) {
+    $asignaturas[] = $row;
+}
+
 sqlsrv_close($conn);
 ?>
 
@@ -154,6 +180,51 @@ sqlsrv_close($conn);
                                 <button class="submit" id="close-assesory-button">Cancelar</button>
                                 <button class="submit" type="submit">Crear</button>
                             </div>
+                        </form>
+                    </div>
+
+                    <div class="emergent-sidebar" id="new-assigment-container">
+                        <h1>Crear Asignación</h1>
+                        <br>
+                        <form method="POST" action="/static/scripts/php/post/new-asigment.php">
+                            <select id="idAsignatura" name="idAsignatura" required>
+                                <option value="">Seleccione una Asignatura</option>
+                                <?php foreach ($asignaturas as $asignatura): ?>
+                                    <option value="<?php echo htmlspecialchars($asignatura['IdAsignatura']); ?>">
+                                        <?php echo htmlspecialchars($asignatura['Nombre']); ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select><br><br>
+
+                            <label for="idAsesor">Asesor:</label>
+                            <select id="idAsesor" name="idAsesor" required>
+                                <option value="">Seleccione un Asesor</option>
+                                <?php foreach ($asesores as $asesor): ?>
+                                    <option value="<?php echo htmlspecialchars($asesor['IdAsesor']); ?>">
+                                        <?php echo htmlspecialchars($asesor['Nombre'] . ' ' . $asesor['ApellidoPaterno']); ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select><br>
+                            <br>
+
+                            <select name="tipoAsesoria" id="tipoAsesoria" required>
+                                <option value="">Tipo de Asesoría</option>
+                                <option value="Individual">Individual</option>
+                                <option value="Grupal">Grupal</option>
+                            </select><br>
+                            <br>
+
+                            <label for="fechaAsignacion">Fecha de Asignación:</label>
+                            <input type="date" id="fechaAsignacion" name="fechaAsignacion" required><br>
+
+                            <input type="text" id="lugar" name="lugar" required placeholder="Lugar:"><br>
+
+                            <input type="number" id="horasEstimadas" name="horasEstimadas" required placeholder="Horas estimadas:"><br>
+
+                            <input type="text" id="horario" name="horario" required placeholder="Horario:"><br>
+
+                            <button class="submit" type="submit">Crear Asignación</button>
+                            <button class="submit" id="close-assigment-button">Cancelar</button>
                         </form>
                     </div>
 
