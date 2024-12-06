@@ -38,13 +38,14 @@
             </li>
         </ul>
         <ul class="sidebar-controls">
-            <a href="/index.php">
-                <li class="item">
-                    <button><img src="/static/pictures/template-icons/logout.svg" alt="">
+            <li class="item">
+                <a href="/static/scripts/php/logout.php">
+                    <button>
+                        <img src="/static/pictures/template-icons/logout.svg" alt="">
                         <p>Salir</p>
                     </button>
-                </li>
-            </a>
+                </a>
+            </li>
             <li class="item">
                 <a href="/pages/administrator/profile.php">
                     <button><img src="/static/pictures/template-icons/person.svg" alt="">
@@ -84,9 +85,9 @@
                 </div>
 
                 <div class="get-admins">
-                        <h3>Lista de Estudiantes</h3>
-                        <?php include __DIR__ . '/../../static/scripts/php/get/view-admins.php'; ?>
-                    </div>+
+                    <h3>Lista de Adminsitradores</h3>
+                    <?php include __DIR__ . '/../../static/scripts/php/get/view-admins.php'; ?>
+                </div>+
 
                 <div class="new-accound assesor emergent-sidebar" id="new-assesor-accound-container">
 

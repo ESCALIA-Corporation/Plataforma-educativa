@@ -27,6 +27,7 @@ try {
         $_SESSION['ID_user'] = $user['IdUsuario'];
         $_SESSION['Nombre_user'] = trim($user['Descripcion']);
         $_SESSION['Id_programaedu'] = $user['IdPE'];
+        $_SESSION['Tipo'] = trim($user['Tipo']); 
 
         // Redirigir al dashboard del asesor
         header('Location: /pages/assesor/dashboard.php');

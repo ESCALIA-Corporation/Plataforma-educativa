@@ -31,9 +31,10 @@ include __DIR__ . '/../../static/scripts/php/connectiondb.php';
         </ul>
         <ul class="sidebar-controls">
             <li class="item">
-                <a href="/index.php">
-                    <button><img src="/static/pictures/template-icons/logout.svg" alt="">
-                        <p>Logout</p>
+                <a href="/static/scripts/php/logout.php">
+                    <button>
+                        <img src="/static/pictures/template-icons/logout.svg" alt="">
+                        <p>Salir</p>
                     </button>
                 </a>
             </li>

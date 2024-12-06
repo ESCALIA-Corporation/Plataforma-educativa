@@ -24,12 +24,10 @@ document.querySelectorAll(".open-edit-eduprog").forEach(function (button) {
     });
 });
 
-// Ocultar el panel cuando el usuario hace clic en el botón de cerrar
-document.getElementById("close-assigment-button").addEventListener("click", function () {
+document.getElementById("cancel-educative-program-button").addEventListener("click", function () {
     document.getElementById("edit-panel-educative-program").style.display = "none";
 });
 
-// También puedes ocultar el contenedor si se hace clic fuera de él
 window.addEventListener("click", function (event) {
     var modal = document.getElementById("open-edit-eduprog");
     if (event.target == modal) {

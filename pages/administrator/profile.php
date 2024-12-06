@@ -41,8 +41,9 @@
         </ul>
         <ul class="sidebar-controls">
             <li class="item">
-                <a href="/index.php">
-                    <button><img src="/static/pictures/template-icons/logout.svg" alt="">
+                <a href="/static/scripts/php/logout.php">
+                    <button>
+                        <img src="/static/pictures/template-icons/logout.svg" alt="">
                         <p>Salir</p>
                     </button>
                 </a>
@@ -78,6 +79,8 @@
                     </div>
 
                     <button class="submit" type="submit">Modificar Perfil</button>
+                </form>
+                <form action="/static/scripts/php/delete/delete-profile.php" method="post">
                     <button class="submit" style="background-color: red;">Eliminar Cuenta</button>
                 </form>
             </section>
