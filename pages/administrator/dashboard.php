@@ -199,13 +199,17 @@ sqlsrv_close($conn);
                             <label for="idAsesor">Asesor:</label>
                             <select id="idAsesor" name="idAsesor" required>
                                 <option value="">Seleccione un Asesor</option>
-                                <?php foreach ($asesores as $asesor): ?>
-                                    <option value="<?php echo htmlspecialchars($asesor['IdAsesor']); ?>">
-                                        <?php echo htmlspecialchars($asesor['Nombre'] . ' ' . $asesor['ApellidoPaterno']); ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select><br>
-                            <br>
+                                <?php if (!empty($asesores) && is_array($asesores)): ?>
+                                    <?php foreach ($asesores as $asesor): ?>
+                                        <option value="<?php echo htmlspecialchars($asesor['IdAsesor']); ?>">
+                                            <?php echo htmlspecialchars($asesor['Nombre'] . ' ' . $asesor['ApellidoPaterno']); ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <option value="" disabled>No hay asesores disponibles</option>
+                                <?php endif; ?>
+                            </select>
+                            <br><br>
 
                             <select name="tipoAsesoria" id="tipoAsesoria" required>
                                 <option value="">Tipo de Asesoría</option>
@@ -229,14 +233,14 @@ sqlsrv_close($conn);
                     </div>
 
                 </div>
-                <div class="schedule dash-into-container">
-                    <h3>Horario de Asesores</h3>
+                <div class="profile dash-into-container">
+                    <h3>Perfil de Asesor</h3>
 
-                    <form action="" method="GET">
-                        <th>esto es un horario</th>
-                    </form>
+                    <p>Accede y edita la información de tu perfil</p>
                     <div class="controls">
-                        <button class="submit">Modificar Horarios</button>
+                        <a href="/pages/administrator/profile.php">
+                            <button class="submit">Ir a Perfil</button>
+                        </a>
                     </div>
                 </div>
             </div>

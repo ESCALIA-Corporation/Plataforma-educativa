@@ -104,21 +104,22 @@
 
                     <div class="emergent-sidebar" id="edit-panel-educative-program">
                         <form action="/static/scripts/php/update/update-eduprog.php" method="post">
-                            <input type="hidden" name="idPE" value="<?php echo isset($row['IdPE']) ? htmlspecialchars($row['IdPE']) : ''; ?>">
+                            <input type="hidden" name="idPE" value="<?php echo htmlspecialchars($idPE); ?>">
 
                             <label for="clavePE">Clave:</label>
-                            <input type="text" id="clavePE" name="clavePE" value="<?php echo isset($row['ClavePE']) ? htmlspecialchars($row['ClavePE']) : ''; ?>" required>
+                            <input type="text" id="clavePE" name="clavePE" value="<?php echo htmlspecialchars($clavePE); ?>" required>
 
                             <label for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" name="nombre" value="<?php echo isset($row['Nombre']) ? htmlspecialchars($row['Nombre']) : ''; ?>" required>
+                            <input type="text" id="nombre" name="nombre" value="<?php echo htmlspecialchars($nombre); ?>" required>
 
                             <label for="responsable">Responsable:</label>
-                            <input type="text" id="responsable" name="responsable" value="<?php echo isset($row['Responsable']) ? htmlspecialchars($row['Responsable']) : ''; ?>" required>
+                            <input type="text" id="responsable" name="responsable" value="<?php echo htmlspecialchars($responsable); ?>" required>
 
-                            <input type="hidden" name="idUsuario" value="<?php echo isset($row['IdUsuario']) ? htmlspecialchars($row['IdUsuario']) : ''; ?>"> <!-- Asegúrate de incluir este campo -->
+                            <input type="hidden" name="idUsuario" value="<?php echo htmlspecialchars($_SESSION['ID_user']); ?>">
 
                             <button type="submit">Actualizar</button>
                         </form>
+
                     </div>
 
                 </div>

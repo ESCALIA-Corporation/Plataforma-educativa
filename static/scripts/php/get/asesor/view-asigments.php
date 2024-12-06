@@ -1,13 +1,11 @@
 <?php
-//session_start(); // Asegúrate de que la sesión esté iniciada
+// Asegúrate de que la sesión esté iniciada
 //include __DIR__ . '/../connectiondb.php';
 
 try {
-    // Verificar si el ID del usuario está en la sesión
     if (isset($_SESSION['ID_user'])) {
-        $idAsesor = $_SESSION['ID_user'];
+        $idAsesor = '2  ';
 
-        // Consultar la tabla ASIGNACION filtrando por IdAsesor y uniendo con ASIGNATURA
         $sql = "
             SELECT 
                 A.IdAsignatura, 
@@ -29,7 +27,6 @@ try {
             throw new Exception(print_r(sqlsrv_errors(), true));
         }
 
-        // INIT HTML
         echo '<div class="user-container">';
         while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
             echo '<div class="asesory-card">';

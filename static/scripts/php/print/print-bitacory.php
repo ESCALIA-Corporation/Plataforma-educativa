@@ -1,17 +1,14 @@
 <?php
-// Incluir el archivo de conexión a la base de datos
 include __DIR__ . '/../connectiondb.php';
 
 try {
-    // Consultar la vista
-    $sql = "SELECT * FROM vw_Bitacora_asesoria";
-    $stmt = sqlsrv_query($conn, $sql);
+    $sql = "SELECT DISTINCT AlumnoFechaRegistro, Matricula, AlumnoNombre, AsignaturaNombre, Tema, ProgramaNombre, AsesorNombre FROM vw_Bitacora_asesoria";
+    $stmt = sqlsrv_query($conn, $sql); // Usa DISTINCT para evitar duplicados
 
     if ($stmt === false) {
         throw new Exception(print_r(sqlsrv_errors(), true));
     }
 
-    // Crear el contenido del PDF
     $pdf_content = "%PDF-1.4\n";
     $pdf_content .= "1 0 obj\n";
     $pdf_content .= "<< /Type /Catalog /Pages 2 0 R >>\n";
@@ -20,48 +17,68 @@ try {
     $pdf_content .= "<< /Type /Pages /Kids [3 0 R] /Count 1 >>\n";
     $pdf_content .= "endobj\n";
     $pdf_content .= "3 0 obj\n";
-    $pdf_content .= "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 0 0 R >> >> >>\n";
+    $pdf_content .= "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 842 595] /Contents 4 0 R /Resources << /Font << /F1 0 0 R >> >> >>\n";
     $pdf_content .= "endobj\n";
     $pdf_content .= "4 0 obj\n";
     $pdf_content .= "<< /Length 5 0 R >>\n";
     $pdf_content .= "stream\n";
 
-    // Agregar contenido al PDF
+    // Título
     $pdf_content .= "BT\n";
-    $pdf_content .= "/F1 24 Tf\n"; // Tamaño de fuente
-    $pdf_content .= "100 700 Td\n"; // Posición
-    $pdf_content .= "(Bitácora de Asesoría) Tj\n"; // Texto
+    $pdf_content .= "/F1 14 Tf\n"; // Tamaño reducido para el título
+    $pdf_content .= "250 570 Td\n";
+    $pdf_content .= "(Bitacora de Asesoria) Tj\n";
     $pdf_content .= "ET\n";
 
-    // Tabla de datos
+    // Encabezado de la tabla
     $pdf_content .= "BT\n";
-    $pdf_content .= "/F1 12 Tf\n"; // Tamaño de fuente
-    $pdf_content .= "100 650 Td\n"; // Posición
-    $pdf_content .= "(Id Asesoria | Fecha Registro | Matricula | Nombre | Apellido Paterno | Apellido Materno | Asignatura | Tema | Programa | Asesor) Tj\n"; // Encabezado
+    $pdf_content .= "/F1 10 Tf\n"; // Tamaño pequeño para el encabezado
+    $pdf_content .= "50 540 Td\n";
+    $pdf_content .= "(Fecha Registro   | Matricula   | Nombre Completo           | Asignatura      | Tema             | Programa       | Asesor) Tj\n";
     $pdf_content .= "ET\n";
 
-    // Iterar sobre los resultados
+    $y_position = 520; // Posición inicial para los datos
+
+    $data = [];
     while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-        $pdf_content .= "BT\n";
-        $pdf_content .= "/F1 12 Tf\n"; // Tamaño de fuente
-        $pdf_content .= "100 630 Td\n"; // Posición
-        $pdf_content .= "({$row['IdAsesoria']} | {$row['AlumnoFechaRegistro']} | {$row['Matricula']} | {$row['AlumnoNombre']} | {$row['AlumnoApellidoPaterno']} | {$row['AlumnoApellidoMaterno']} | {$row['AsignaturaNombre']} | {$row['Tema']} | {$row['ProgramaNombre']} | {$row['AsesorNombre']}) Tj\n"; // Datos
-        $pdf_content .= "ET\n";
+        $data[] = $row;
     }
 
-    // Si no hay datos
-    if (sqlsrv_num_rows($stmt) === 0) {
+    foreach ($data as $row) {
+        $fechaRegistro = $row['AlumnoFechaRegistro'];
+        if ($fechaRegistro instanceof DateTime) {
+            $fechaRegistro = $fechaRegistro->format('Y-m-d'); // Formato reducido
+        }
+
+        // Usar directamente el nombre completo del alumno
+        $nombreCompleto = $row['AlumnoNombre'];
+
+        // Formatear cada fila con columnas fijas
         $pdf_content .= "BT\n";
-        $pdf_content .= "/F1 12 Tf\n"; // Tamaño de fuente
-        $pdf_content .= "100 630 Td\n"; // Posición
-        $pdf_content .= "(No hay datos disponibles) Tj\n"; // Mensaje
+        $pdf_content .= "/F1 8 Tf\n"; // Tamaño pequeño para los datos
+        $pdf_content .= "50 {$y_position} Td\n";
+        $pdf_content .= sprintf(
+            "(%-15s | %-10s | %-25s | %-15s | %-15s | %-15s | %-10s) Tj\n",
+            $fechaRegistro,
+            $row['Matricula'],
+            $nombreCompleto,
+            $row['AsignaturaNombre'],
+            $row['Tema'],
+            $row['ProgramaNombre'],
+            $row['AsesorNombre']
+        );
         $pdf_content .= "ET\n";
+
+        $y_position -= 12; // Reducir espacio entre filas
+        if ($y_position < 50) {
+            break; // Si llega al límite de la página
+        }
     }
 
     $pdf_content .= "endstream\n";
     $pdf_content .= "endobj\n";
     $pdf_content .= "5 0 obj\n";
-    $pdf_content .= "44\n"; // Longitud del contenido
+    $pdf_content .= strlen($pdf_content) . "\n";
     $pdf_content .= "endobj\n";
     $pdf_content .= "xref\n";
     $pdf_content .= "0 6\n";
@@ -74,21 +91,16 @@ try {
     $pdf_content .= "trailer\n";
     $pdf_content .= "<< /Size 6 /Root 1 0 R >>\n";
     $pdf_content .= "startxref\n";
-    $pdf_content .= "300\n"; // Posición del inicio del xref
+    $pdf_content .= "300\n";
     $pdf_content .= "%%EOF";
 
-    // Enviar el encabezado para el PDF
     header('Content-Type: application/pdf');
     header('Content-Disposition: inline; filename="bitacora_asesoria.pdf"');
     header('Content-Length: ' . strlen($pdf_content));
 
-    // Imprimir el contenido del PDF
     echo $pdf_content;
-    
-
-        // Cerrar la conexión
-        $conn->close();
-    } catch (Exception $e) {
-        echo "Error: " . $e->getMessage();
-    }
-    ?>
+    $conn->close();
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>

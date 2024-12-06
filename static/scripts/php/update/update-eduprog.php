@@ -1,42 +1,34 @@
 <?php
-include __DIR__ . '/../connectiondb.php'; // Asegúrate de que la conexión a la base de datos esté incluida
+include __DIR__ . '/../connectiondb.php';
+session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Verifica que se reciban los datos necesarios
-    if (isset($_POST['idPE'], $_POST['clavePE'], $_POST['nombre'], $_POST['responsable'], $_POST['idUsuario'])) {
-        $idPE = $_POST['idPE'];
-        $clavePE = $_POST['clavePE'];
-        $nombre = $_POST['nombre'];
-        $responsable = $_POST['responsable'];
-        $idUsuario = $_POST['idUsuario']; // Asegúrate de que este campo esté en tu formulario
+// Verifica si se ha recibido el IdPE desde la URL
+if (isset($_GET['idPE'])) {
+    $idPE = $_GET['idPE'];
 
-        // Prepara la llamada al procedimiento almacenado
-        $sql = "{CALL SP_U_PE(?, ?, ?, ?, ?)}";
-        $params = array($idPE, $clavePE, $nombre, $responsable, $idUsuario);
+    $sql = "SELECT IdPE, ClavePE, Nombre, Responsable FROM PROGRAMA_EDUCATIVO WHERE IdPE = ?";
+    $params = array($idPE);
+    $stmt = sqlsrv_query($conn, $sql, $params);
 
-        // Ejecuta el procedimiento almacenado
-        $stmt = sqlsrv_query($conn, $sql, $params);
-
-        if ($stmt === false) {
-            // Manejo de errores en caso de que la consulta falle
-            die(print_r(sqlsrv_errors(), true));
-        } else {
-            // Redirige a una página de éxito o muestra un mensaje de éxito
-            echo "Datos actualizados correctamente.";
-            // Puedes redirigir a otra página si lo deseas
-            // header("Location: success.php");
-            // exit();
-        }
-
-        // Libera la declaración
-        sqlsrv_free_stmt($stmt);
-    } else {
-        echo "Faltan datos para actualizar.";
+    if ($stmt === false) {
+        die(print_r(sqlsrv_errors(), true)); // Manejo de errores si la consulta falla
     }
+
+    // Si el IdPE existe en la base de datos, obtenemos los valores
+    $row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
+    if ($row) {
+        $clavePE = $row['ClavePE'];
+        $nombre = $row['Nombre'];
+        $responsable = $row['Responsable'];
+    } else {
+        echo "No se encontró el programa educativo con el IdPE proporcionado.";
+        exit();
+    }
+
+    sqlsrv_free_stmt($stmt);
 } else {
-    echo "Método de solicitud no válido.";
+    echo "Faltan parámetros para cargar los datos.";
+    exit();
 }
 
-// Cierra la conexión
 sqlsrv_close($conn);
-?>

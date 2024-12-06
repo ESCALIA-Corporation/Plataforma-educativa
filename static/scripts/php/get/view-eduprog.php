@@ -15,10 +15,11 @@ try {
         echo '<div class="eduprogram-card">';
 
         // BASIC DATA
-        echo '<div class="data">';
+        echo '< class="data">';
         echo '<p> ' . htmlspecialchars($row['ClavePE']) . '</p>';
         echo '<p> ' . htmlspecialchars($row['Nombre']) . '</p>';
         echo '<p> ' . htmlspecialchars($row['Responsable']) . '</p>';
+        echo '<button class="submit open-edit-eduprog" data-id="' . htmlspecialchars($row['IdPE']) . '">Editar Programa</button>';
         echo '<button class="submit open-edit-eduprog" data-id="' . htmlspecialchars($row['IdPE']) . '">Editar</button>';
         echo '</div>';
 

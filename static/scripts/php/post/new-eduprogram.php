@@ -33,6 +33,10 @@ if (isset($_SESSION['ID_user']) && isset($_SESSION['Nombre_user'])) {
             throw new Exception(print_r(sqlsrv_errors(), true));
         }
 
+        // Guardar el IdPE en la sesión para utilizarlo después
+        $_SESSION['lastInsertedIdPE'] = $newId_proedu;
+
+        // Redirigir a la página deseada
         header('Location: /./pages/administrator/administration.php');
     } catch (Exception $e) {
         echo "Error al insertar el registro: " . $e->getMessage();

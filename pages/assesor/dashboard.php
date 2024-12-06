@@ -70,7 +70,7 @@ include __DIR__ . '/../../static/scripts/php/connectiondb.php';
                         <?php include __DIR__ . '/../../static/scripts/php/get/asesor/view-asigments.php'; ?>
 
                         <form class="controls" action="/static/scripts/php/print/print-bitacory.php" method="post">
-                            <button type="submit">Generar PDF</button>
+                            <button class="submit" type="submit">Generar PDF</button>
                         </form>
 
                     </div>
@@ -110,12 +110,15 @@ include __DIR__ . '/../../static/scripts/php/connectiondb.php';
                     </div>
                     -->
                 </div>
-                <div class="schedule dash-into-container">
-                    <h3>Horario de Asesores</h3>
+                <div class="profile dash-into-container">
+                    <h3>Perfil de Asesor</h3>
 
-                    <form action="" method="GET">
-                        <th>hola</th>
-                    </form>
+                    <p>Accede y edita la información de tu perfil</p>
+                    <div class="controls">
+                        <a href="/pages/assesor/profile.php">
+                            <button class="submit">Ir a Perfil</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
