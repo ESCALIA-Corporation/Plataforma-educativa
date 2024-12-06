@@ -34,3 +34,29 @@ window.addEventListener("click", function (event) {
         modal.style.display = "none";
     }
 });
+
+document.querySelectorAll(".open-edit-asignatura").forEach(function (button) {
+    button.addEventListener("click", function () {
+        document.getElementById("edit-panel-asignatura").style.display = "block";
+    });
+});
+
+// Cerrar el panel de edición al hacer clic en el botón de cancelar
+document.getElementById("cancel-asignatura-button").addEventListener("click", function () {
+    document.getElementById("edit-panel-asignatura").style.display = "none";
+});
+
+// Cerrar el panel de edición al hacer clic fuera de él
+window.addEventListener("click", function (event) {
+    var modal = document.getElementById("edit-panel-asignatura");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+});
+
+// Cerrar el panel de edición al presionar la tecla "Escape"
+window.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        document.getElementById("edit-panel-asignatura").style.display = "none";
+    }
+});

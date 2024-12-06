@@ -52,6 +52,43 @@ while ($row = sqlsrv_fetch_array($asignaturaStmt, SQLSRV_FETCH_ASSOC)) {
     $asignaturas[] = $row;
 }
 
+// Obtener los alumnos (nombre y matrícula) desde la tabla ALUMNO
+$alumnosSql = "SELECT Matricula, Nombre, ApellidoPaterno, ApellidoMaterno FROM ALUMNO";
+$alumnosStmt = sqlsrv_query($conn, $alumnosSql);
+
+if ($alumnosStmt === false) {
+    die(print_r(sqlsrv_errors(), true));
+}
+
+// Obtener las asignaturas (nombre y ID) desde la tabla ASIGNATURA
+$asignaturasSql = "SELECT IdAsignatura, Nombre FROM ASIGNATURA";
+$asignaturasStmt = sqlsrv_query($conn, $asignaturasSql);
+
+if ($asignaturasStmt === false) {
+    die(print_r(sqlsrv_errors(), true));
+}
+
+// Crear los arrays para los resultados
+$alumnos = [];
+$asignaturas = [];
+
+// Llenar el array de alumnos
+while ($row = sqlsrv_fetch_array($alumnosStmt, SQLSRV_FETCH_ASSOC)) {
+    $alumnos[] = [
+        'Matricula' => $row['Matricula'],
+        'Nombre' => $row['Nombre'],
+        'ApellidoPaterno' => $row['ApellidoPaterno'],
+        'ApellidoMaterno' => $row['ApellidoMaterno']
+    ];
+}
+
+// Llenar el array de asignaturas
+while ($row = sqlsrv_fetch_array($asignaturasStmt, SQLSRV_FETCH_ASSOC)) {
+    $asignaturas[] = [
+        'IdAsignatura' => $row['IdAsignatura'],
+        'Nombre' => $row['Nombre']
+    ];
+}
 sqlsrv_close($conn);
 ?>
 
@@ -141,6 +178,7 @@ sqlsrv_close($conn);
 
                     <div class="controls">
                         <button class="submit" id="new-assesory-button">Nueva Asesoria</button>
+                        <button class="submit open-edit-asesoria">Editar Asesoria</button>
                     </div>
 
                     <div class="new-asesory emergent-sidebar" id="new-assesory-container">
@@ -283,6 +321,56 @@ sqlsrv_close($conn);
                 </div>
             </div>
         </section>
+
+        <section>
+            <div class="emergent-sidebar" id="edit-panel-asesoria">
+                <h3>Edita una Asesoría</h3>
+                <br>
+                <form action="/static/scripts/php/update/update-asesoria.php" method="post">
+                    <!-- Selección de Alumno -->
+                    <input type="hidden" name="idAsesoria" value="<?php echo htmlspecialchars($idAsesoria ?? ''); ?>" />
+
+                    <label for="alumno">Selecciona un Alumno:</label>
+                    <select id="alumno" name="matricula" required>
+                        <option value="">Selecciona un alumno</option>
+                        <?php foreach ($alumnos as $alumno): ?>
+                            <option value="<?php echo htmlspecialchars($alumno['Matricula']); ?>">
+                                <?php echo htmlspecialchars($alumno['Nombre'] . ' ' . $alumno['ApellidoPaterno'] . ' ' . $alumno['ApellidoMaterno']); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <br><br>
+
+                    <!-- Selección de Asignatura -->
+                    <label for="asignatura">Selecciona una Asignatura:</label>
+                    <select id="asignatura" name="idAsignatura" required>
+                        <option value="">Selecciona una asignatura</option>
+                        <?php foreach ($asignaturas as $asignatura): ?>
+                            <option value="<?php echo htmlspecialchars($asignatura['IdAsignatura']); ?>">
+                                <?php echo htmlspecialchars($asignatura['Nombre']); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <br><br>
+                    <input type="text" id="tema" name="n-tema" placeholder="Tema" value="<?php echo htmlspecialchars($tema ?? ''); ?>" required>
+                    <br><br>
+
+                    <input type="text" id="horario" name="n-horario" placeholder="Horario" value="<?php echo htmlspecialchars($horario ?? ''); ?>" required>
+                    <br><br>
+
+                    <input type="number" id="totalHoras" name="n-totalHoras" placeholder="Total Horas" value="<?php echo htmlspecialchars($totalHoras ?? ''); ?>" required>
+                    <br><br>
+
+                    <input type="date" id="fechaRegistro" name="n-fechaRegistro" value="<?php echo htmlspecialchars($fechaRegistro ?? ''); ?>" required>
+                    <br><br>
+
+                    <button type="button" class="submit" id="cancel-asesoria-button" onclick="closeEditPanel()">Cancelar</button>
+                    <button class="submit" type="submit">Actualizar</button>
+                </form>
+            </div>
+
+        </section>
+
 
         <!-- FOOTER INTO THE MAIN CONTAINER -->
         <footer>

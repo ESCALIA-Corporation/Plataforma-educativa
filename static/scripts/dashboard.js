@@ -26,3 +26,31 @@ window.addEventListener("click", function(event) {
         modal.style.display = "none";
     }
 });
+
+document.querySelectorAll(".open-edit-asesoria").forEach(function (button) {
+    button.addEventListener("click", function () {
+        // Mostrar el panel de edición
+        document.getElementById("edit-panel-asesoria").style.display = "block";
+    });
+});
+
+// Cerrar el panel de edición al hacer clic en el botón de cancelar
+document.getElementById("cancel-asesoria-button").addEventListener("click", function () {
+    // Ocultar el panel de edición
+    document.getElementById("edit-panel-asesoria").style.display = "none";
+});
+
+// Cerrar el panel de edición al hacer clic fuera de él
+window.addEventListener("click", function (event) {
+    var modal = document.getElementById("edit-panel-asesoria");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+});
+
+// Cerrar el panel de edición al presionar la tecla "Escape"
+window.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        document.getElementById("edit-panel-asesoria").style.display = "none";
+    }
+});

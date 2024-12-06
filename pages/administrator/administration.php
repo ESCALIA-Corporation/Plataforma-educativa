@@ -4,14 +4,9 @@
 <?php
 include __DIR__ . '/../../static/scripts/php/connectiondb.php';
 
-// Obtener el idPE de la solicitud (GET o POST)
 $idPE = $_GET['idPE'] ?? null; // Cambia a $_POST si es necesario
-
-// Inicializar variables para el nombre y responsable
 $nombre = '';
 $responsable = '';
-
-// Obtener los programas educativos disponibles
 $programasEducativos = [];
 $programasSql = "SELECT IdPE, ClavePE, Nombre FROM PROGRAMA_EDUCATIVO"; // Asegúrate de que la tabla sea correcta
 $programasStmt = sqlsrv_query($conn, $programasSql);
@@ -28,7 +23,6 @@ while ($row = sqlsrv_fetch_array($programasStmt, SQLSRV_FETCH_ASSOC)) {
     ];
 }
 
-// Si se proporciona un idPE, obtener los detalles del programa educativo
 if ($idPE) {
     $detallesSql = "SELECT Nombre, Responsable FROM PROGRAMA_EDUCATIVO WHERE IdPE = ?";
     $detallesStmt = sqlsrv_prepare($conn, $detallesSql, array($idPE));
@@ -38,8 +32,43 @@ if ($idPE) {
             $nombre = $row['Nombre'];
             $responsable = $row['Responsable'];
         } else {
-            // Manejar el caso en que no se encuentra el programa educativo
             echo "No se encontró el programa educativo.";
+        }
+    } else {
+        die(print_r(sqlsrv_errors(), true));
+    }
+}
+
+$idAsignatura = $_GET['idAsignatura'] ?? null; // Cambia a $_POST si es necesario
+$nombre = '';
+$creditos = '';
+$semestre = '';
+$asignaturas = [];
+$asignaturasSql = "SELECT IdAsignatura, Nombre FROM ASIGNATURA"; // Asegúrate de que la tabla sea correcta
+$asignaturasStmt = sqlsrv_query($conn, $asignaturasSql);
+
+if ($asignaturasStmt === false) {
+    die(print_r(sqlsrv_errors(), true));
+}
+
+while ($row = sqlsrv_fetch_array($asignaturasStmt, SQLSRV_FETCH_ASSOC)) {
+    $asignaturas[] = [
+        'IdAsignatura' => $row['IdAsignatura'],
+        'Nombre' => $row['Nombre']
+    ];
+}
+
+if ($idAsignatura) {
+    $detallesSql = "SELECT Nombre, Creditos, Semestre FROM ASIGNATURA WHERE IdAsignatura = ?";
+    $detallesStmt = sqlsrv_prepare($conn, $detallesSql, array($idAsignatura));
+
+    if (sqlsrv_execute($detallesStmt)) {
+        if ($row = sqlsrv_fetch_array($detallesStmt, SQLSRV_FETCH_ASSOC)) {
+            $nombre = $row['Nombre'];
+            $creditos = $row['Creditos'];
+            $semestre = $row['Semestre'];
+        } else {
+            echo "No se encontró la asignatura.";
         }
     } else {
         die(print_r(sqlsrv_errors(), true));
@@ -185,6 +214,7 @@ if ($idPE) {
 
                     <div class="controls">
                         <button class="submit" id="new-assignature-button">Nueva Asignatura</button>
+                        <button class="submit open-edit-asignatura">Editar Asignatura</button>
                     </div>
                     <div class="new-asignature emergent-sidebar" id="panel-asignature">
                         <h3>Nueva Asignatura</h3>
@@ -203,6 +233,35 @@ if ($idPE) {
                                 <button class="submit" id="close-asignature-button">Cancelar</button>
                                 <button class="submit" type="submit">Crear</button>
                             </div>
+                        </form>
+                    </div>
+                    <div class="emergent-sidebar" id="edit-panel-asignatura">
+                        <h3>Edita una Asignatura</h3>
+                        <br>
+                        <form action="/static/scripts/php/update/update-mates.php" method="post">
+                            <label for="asignatura">Selecciona una asignatura:</label>
+                            <select id="asignatura" name="idAsignatura" required>
+                                <option value="">Selecciona una asignatura</option>
+                                <?php foreach ($asignaturas as $asignatura): ?>
+                                    <option value="<?php echo htmlspecialchars($asignatura['IdAsignatura']); ?>"
+                                        <?php echo ($asignatura['IdAsignatura'] == $idAsignatura) ? 'selected' : ''; ?>>
+                                        <?php echo htmlspecialchars($asignatura['Nombre']); ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                            <br><br>
+
+                            <input type="text" id="nombre" name="n-nombre" placeholder="Nombre de la asignatura" value="<?php echo htmlspecialchars($nombre ?? ''); ?>" required>
+                            <br><br>
+
+                            <input type="number" id="creditos" name="n-creditos" placeholder="Número de créditos" value="<?php echo htmlspecialchars($creditos ?? ''); ?>" required>
+                            <br><br>
+
+                            <input type="number" id="semestre" name="n-semestre" placeholder="Semestre" value="<?php echo htmlspecialchars($semestre ?? ''); ?>" required>
+                            <br><br>
+
+                            <button type="button" class="submit" id="cancel-asignatura-button" onclick="closeEditPanel()">Cancelar</button>
+                            <button class="submit" type="submit">Actualizar</button>
                         </form>
                     </div>
                 </div>
