@@ -327,14 +327,14 @@ sqlsrv_close($conn);
                 <h3>Edita una Asesoría</h3>
                 <br>
                 <form action="/static/scripts/php/update/update-asesoria.php" method="post">
-                    <!-- Selección de Alumno -->
                     <input type="hidden" name="idAsesoria" value="<?php echo htmlspecialchars($idAsesoria ?? ''); ?>" />
 
                     <label for="alumno">Selecciona un Alumno:</label>
                     <select id="alumno" name="matricula" required>
                         <option value="">Selecciona un alumno</option>
                         <?php foreach ($alumnos as $alumno): ?>
-                            <option value="<?php echo htmlspecialchars($alumno['Matricula']); ?>">
+                            <option value="<?php echo htmlspecialchars($alumno['Matricula']); ?>"
+                                <?php echo isset($matricula) && $matricula == $alumno['Matricula'] ? 'selected' : ''; ?>>
                                 <?php echo htmlspecialchars($alumno['Nombre'] . ' ' . $alumno['ApellidoPaterno'] . ' ' . $alumno['ApellidoMaterno']); ?>
                             </option>
                         <?php endforeach; ?>
@@ -346,29 +346,29 @@ sqlsrv_close($conn);
                     <select id="asignatura" name="idAsignatura" required>
                         <option value="">Selecciona una asignatura</option>
                         <?php foreach ($asignaturas as $asignatura): ?>
-                            <option value="<?php echo htmlspecialchars($asignatura['IdAsignatura']); ?>">
+                            <option value="<?php echo htmlspecialchars($asignatura['IdAsignatura']); ?>"
+                                <?php echo isset($idAsignatura) && $idAsignatura == $asignatura['IdAsignatura'] ? 'selected' : ''; ?>>
                                 <?php echo htmlspecialchars($asignatura['Nombre']); ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
                     <br><br>
-                    <input type="text" id="tema" name="n-tema" placeholder="Tema" value="<?php echo htmlspecialchars($tema ?? ''); ?>" required>
+                    <input type="text" id="tema" name="n-tema" placeholder="Tema" value="<?php echo htmlspecialchars($tema ?? ''); ?>"
+                        pattern=".{1,255}" title="Máximo 255 caracteres" required>
                     <br><br>
-
-                    <input type="text" id="horario" name="n-horario" placeholder="Horario" value="<?php echo htmlspecialchars($horario ?? ''); ?>" required>
+                    <input type="time" id="horario" name="n-horario" placeholder="Horario" value="<?php echo htmlspecialchars($horario ?? ''); ?>" required>
                     <br><br>
-
-                    <input type="number" id="totalHoras" name="n-totalHoras" placeholder="Total Horas" value="<?php echo htmlspecialchars($totalHoras ?? ''); ?>" required>
+                    <input type="number" id="totalHoras" name="n-totalHoras" placeholder="Total Horas"
+                        value="<?php echo htmlspecialchars($totalHoras ?? ''); ?>" min="1" max="12" required>
                     <br><br>
-
-                    <input type="date" id="fechaRegistro" name="n-fechaRegistro" value="<?php echo htmlspecialchars($fechaRegistro ?? ''); ?>" required>
+                    <input type="date" id="fechaRegistro" name="n-fechaRegistro"
+                        value="<?php echo htmlspecialchars($fechaRegistro ?? ''); ?>" required>
                     <br><br>
 
                     <button type="button" class="submit" id="cancel-asesoria-button" onclick="closeEditPanel()">Cancelar</button>
                     <button class="submit" type="submit">Actualizar</button>
                 </form>
             </div>
-
         </section>
 
 
