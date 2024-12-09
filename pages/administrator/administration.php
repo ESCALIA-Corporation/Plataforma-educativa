@@ -74,6 +74,30 @@ if ($idAsignatura) {
         die(print_r(sqlsrv_errors(), true));
     }
 }
+
+$programas = [];
+$sql = "SELECT IdPE, Nombre FROM PROGRAMA_EDUCATIVO";
+$stmt = sqlsrv_query($conn, $sql);
+
+if ($stmt !== false) {
+    while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+        $programas[] = $row;
+    }
+} else {
+    die(print_r(sqlsrv_errors(), true));
+}
+
+$asignaturas = [];
+$sql = "SELECT IdAsignatura, Nombre FROM ASIGNATURA";
+$stmt = sqlsrv_query($conn, $sql);
+
+if ($stmt !== false) {
+    while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+        $asignaturas[] = $row;
+    }
+} else {
+    die(print_r(sqlsrv_errors(), true));
+}
 ?>
 
 <head>
@@ -156,6 +180,7 @@ if ($idAsignatura) {
                     <div class="controls">
                         <button class="submit" id="new-educative-program-button">Nuevo Pograma educativo</button>
                         <button class="submit open-edit-eduprog">Editar Pograma educativo</button>
+                        <button class="submit open-delete-program">Eliminar Programa educativo</button>
                     </div>
 
                     <div class="new-educative-program emergent-sidebar" id="panel-educative-program">
@@ -202,6 +227,25 @@ if ($idAsignatura) {
                             <button class="submit" type="submit">Actualizar</button>
                         </form>
                     </div>
+                    <div class="emergent-sidebar" id="delete-panel-program">
+                        <h3>Eliminar un Programa Educativo</h3>
+                        <br>
+                        <form action="/static/scripts/php/delete/detele-programa.php" method="post">
+                            <label for="programa">Selecciona un programa educativo:</label>
+                            <select id="programa" name="idPE" required>
+                                <option value="">Selecciona un programa</option>
+                                <?php foreach ($programas as $programa): ?>
+                                    <option value="<?php echo htmlspecialchars($programa['IdPE']); ?>">
+                                        <?php echo htmlspecialchars(trim($programa['Nombre'])); ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                            <br><br>
+
+                            <button type="button" class="submit" id="cancel-delete-program-button" onclick="closeDeletePanel()">Cancelar</button>
+                            <button class="submit" type="submit">Eliminar</button>
+                        </form>
+                    </div>
 
                 </div>
 
@@ -215,6 +259,7 @@ if ($idAsignatura) {
                     <div class="controls">
                         <button class="submit" id="new-assignature-button">Nueva Asignatura</button>
                         <button class="submit open-edit-asignatura">Editar Asignatura</button>
+                        <!-- <button class="submit open-delete-asignatura">Eliminar Asignatura</button> -->
                     </div>
                     <div class="new-asignature emergent-sidebar" id="panel-asignature">
                         <h3>Nueva Asignatura</h3>
@@ -262,6 +307,26 @@ if ($idAsignatura) {
 
                             <button type="button" class="submit" id="cancel-asignatura-button" onclick="closeEditPanel()">Cancelar</button>
                             <button class="submit" type="submit">Actualizar</button>
+                        </form>
+                    </div>
+
+                    <div class="emergent-sidebar" id="delete-panel-asignatura">
+                        <h3>Eliminar una Asignatura</h3>
+                        <br>
+                        <form action="/static/scripts/php/delete/delete-mate.php" method="post">
+                            <label for="asignatura">Selecciona una asignatura:</label>
+                            <select id="asignatura" name="idAsignatura" required>
+                                <option value="">Selecciona una asignatura</option>
+                                <?php foreach ($asignaturas as $asignatura): ?>
+                                    <option value="<?php echo htmlspecialchars($asignatura['IdAsignatura']); ?>">
+                                        <?php echo htmlspecialchars(trim($asignatura['Nombre'])); ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                            <br><br>
+
+                            <button type="button" class="submit" id="cancel-delete-asignatura-button">Cancelar</button>
+                            <button class="submit" type="submit">Eliminar</button>
                         </form>
                     </div>
                 </div>

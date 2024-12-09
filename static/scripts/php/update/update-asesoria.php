@@ -23,14 +23,14 @@ try {
 
     $sql = "{CALL SP_U_ASESORIA(?, ?, ?, ?, ?, ?, ?, ?)}";
     $params = array($idAsesoria, $matricula, $idAsignatura, $tema, $horario, $totalHoras, $fechaRegistro, 'P');
-    
+
     $stmt = sqlsrv_query($conn, $sql, $params);
 
     if ($stmt === false) {
         throw new Exception("Error al ejecutar la consulta: " . print_r(sqlsrv_errors(), true));
     }
 
-    header('Location: /pages/administrator/administration.php');
+    header('Location: /./pages/administrator/dashboard.php');
     exit;
 } catch (Exception $e) {
     echo "Error al actualizar el registro: " . $e->getMessage();
@@ -39,4 +39,3 @@ try {
 if ($conn) {
     sqlsrv_close($conn);
 }
-?>

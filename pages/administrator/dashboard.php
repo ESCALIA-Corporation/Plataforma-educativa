@@ -1,78 +1,14 @@
 <?php
 include __DIR__ . '/../../static/scripts/php/connectiondb.php';
 
-// Obtener las matrículas disponibles
-$matriculas = [];
-$matriculasSql = "SELECT Matricula FROM ALUMNO"; // Asegúrate de que la tabla sea correcta
-$matriculasStmt = sqlsrv_query($conn, $matriculasSql);
-
-if ($matriculasStmt === false) {
-    die(print_r(sqlsrv_errors(), true));
-}
-
-while ($row = sqlsrv_fetch_array($matriculasStmt, SQLSRV_FETCH_ASSOC)) {
-    $matriculas[] = $row['Matricula'];
-}
-
-$asignaturas = [];
-$asignaturasSql = "SELECT IdAsignatura, Nombre FROM ASIGNATURA"; // Asegúrate de que la tabla sea correcta
-$asignaturasStmt = sqlsrv_query($conn, $asignaturasSql);
-
-if ($asignaturasStmt === false) {
-    die(print_r(sqlsrv_errors(), true));
-}
-
-while ($row = sqlsrv_fetch_array($asignaturasStmt, SQLSRV_FETCH_ASSOC)) {
-    $asignaturas[] = $row; // Almacena el array completo
-}
-
-// Consultar la tabla ASESOR
-$asesores = [];
-$asesorSql = "SELECT IdAsesor, Nombre, ApellidoPaterno FROM ASESOR";
-$asesorStmt = sqlsrv_query($conn, $asesorSql);
-
-if ($asesorStmt === false) {
-    die(print_r(sqlsrv_errors(), true));
-}
-
-while ($row = sqlsrv_fetch_array($asesorStmt, SQLSRV_FETCH_ASSOC)) {
-    $asesores[] = $row;
-}
-
-// Consultar la tabla ASIGNATURA
-$asignaturas = [];
-$asignaturaSql = "SELECT IdAsignatura, Nombre FROM ASIGNATURA";
-$asignaturaStmt = sqlsrv_query($conn, $asignaturaSql);
-
-if ($asignaturaStmt === false) {
-    die(print_r(sqlsrv_errors(), true));
-}
-
-while ($row = sqlsrv_fetch_array($asignaturaStmt, SQLSRV_FETCH_ASSOC)) {
-    $asignaturas[] = $row;
-}
-
-// Obtener los alumnos (nombre y matrícula) desde la tabla ALUMNO
+$alumnos = [];
 $alumnosSql = "SELECT Matricula, Nombre, ApellidoPaterno, ApellidoMaterno FROM ALUMNO";
 $alumnosStmt = sqlsrv_query($conn, $alumnosSql);
 
 if ($alumnosStmt === false) {
-    die(print_r(sqlsrv_errors(), true));
+    die("Error al consultar alumnos: " . print_r(sqlsrv_errors(), true));
 }
 
-// Obtener las asignaturas (nombre y ID) desde la tabla ASIGNATURA
-$asignaturasSql = "SELECT IdAsignatura, Nombre FROM ASIGNATURA";
-$asignaturasStmt = sqlsrv_query($conn, $asignaturasSql);
-
-if ($asignaturasStmt === false) {
-    die(print_r(sqlsrv_errors(), true));
-}
-
-// Crear los arrays para los resultados
-$alumnos = [];
-$asignaturas = [];
-
-// Llenar el array de alumnos
 while ($row = sqlsrv_fetch_array($alumnosStmt, SQLSRV_FETCH_ASSOC)) {
     $alumnos[] = [
         'Matricula' => $row['Matricula'],
@@ -82,13 +18,79 @@ while ($row = sqlsrv_fetch_array($alumnosStmt, SQLSRV_FETCH_ASSOC)) {
     ];
 }
 
-// Llenar el array de asignaturas
+$asignaturas = [];
+$asignaturasSql = "SELECT IdAsignatura, Nombre FROM ASIGNATURA";
+$asignaturasStmt = sqlsrv_query($conn, $asignaturasSql);
+
+if ($asignaturasStmt === false) {
+    die("Error al consultar asignaturas: " . print_r(sqlsrv_errors(), true));
+}
+
 while ($row = sqlsrv_fetch_array($asignaturasStmt, SQLSRV_FETCH_ASSOC)) {
     $asignaturas[] = [
         'IdAsignatura' => $row['IdAsignatura'],
         'Nombre' => $row['Nombre']
     ];
 }
+
+$asesores = [];
+$asesorSql = "SELECT IdAsesor, Nombre, ApellidoPaterno FROM ASESOR";
+$asesorStmt = sqlsrv_query($conn, $asesorSql);
+
+if ($asesorStmt === false) {
+    die("Error al consultar asesores: " . print_r(sqlsrv_errors(), true));
+}
+
+while ($row = sqlsrv_fetch_array($asesorStmt, SQLSRV_FETCH_ASSOC)) {
+    $asesores[] = [
+        'IdAsesor' => $row['IdAsesor'],
+        'Nombre' => $row['Nombre'],
+        'ApellidoPaterno' => $row['ApellidoPaterno']
+    ];
+}
+
+$asesorias = [];
+$asesoriasSql = "SELECT IdAsesoria, Matricula FROM ASESORIA";
+$asesoriasStmt = sqlsrv_query($conn, $asesoriasSql);
+
+if ($asesoriasStmt === false) {
+    die(print_r(sqlsrv_errors(), true));
+}
+
+while ($row = sqlsrv_fetch_array($asesoriasStmt, SQLSRV_FETCH_ASSOC)) {
+    $asesorias[] = [
+        'IdAsesoria' => $row['IdAsesoria'],
+        'Matricula' => $row['Matricula']
+    ];
+}
+
+
+$asesorias = [];
+$asesoriasSql = "SELECT IdAsesoria, Matricula, IdAsignatura FROM ASESORIA";
+$asesoriasStmt = sqlsrv_query($conn, $asesoriasSql);
+
+if ($asesoriasStmt === false) {
+    die(print_r(sqlsrv_errors(), true));
+}
+
+while ($row = sqlsrv_fetch_array($asesoriasStmt, SQLSRV_FETCH_ASSOC)) {
+    $asesoriaDetallesSql = "SELECT B.Nombre AS Asignatura 
+                            FROM ASIGNATURA B
+                            WHERE B.IdAsignatura = ?";
+
+    $stmtDetalles = sqlsrv_query($conn, $asesoriaDetallesSql, array($row['IdAsignatura']));
+    $detalle = sqlsrv_fetch_array($stmtDetalles, SQLSRV_FETCH_ASSOC);
+
+    $asignatura = $detalle['Asignatura'];
+
+    $asesorias[] = [
+        'IdAsesoria' => $row['IdAsesoria'],
+        'Matricula' => $row['Matricula'],
+        'IdAsignatura' => $row['IdAsignatura'],
+        'Asignatura' => $asignatura
+    ];
+}
+
 sqlsrv_close($conn);
 ?>
 
@@ -157,7 +159,6 @@ sqlsrv_close($conn);
         <section class="dash-header">
             <?php
 
-            // Verificar si los valores existen en la señsión
             if (isset($_SESSION['ID_user']) && isset($_SESSION['Nombre_user'])) {
                 $userId = $_SESSION['ID_user'];
                 $userName = $_SESSION['Nombre_user'];
@@ -179,6 +180,7 @@ sqlsrv_close($conn);
                     <div class="controls">
                         <button class="submit" id="new-assesory-button">Nueva Asesoria</button>
                         <button class="submit open-edit-asesoria">Editar Asesoria</button>
+                        <button class="submit open-delete-asesoria">Eliminar Asesoría</button>
                     </div>
 
                     <div class="new-asesory emergent-sidebar" id="new-assesory-container">
@@ -327,7 +329,17 @@ sqlsrv_close($conn);
                 <h3>Edita una Asesoría</h3>
                 <br>
                 <form action="/static/scripts/php/update/update-asesoria.php" method="post">
-                    <input type="hidden" name="idAsesoria" value="<?php echo htmlspecialchars($idAsesoria ?? ''); ?>" />
+                    <label for="asesoria">Selecciona una Asesoría:</label>
+                    <select id="asesoria" name="idAsesoria" required>
+                        <option value="">Selecciona una asesoría</option>
+                        <?php foreach ($asesorias as $asesoria): ?>
+                            <option value="<?php echo htmlspecialchars($asesoria['IdAsesoria']); ?>"
+                                <?php echo isset($idAsesoria) && $idAsesoria == $asesoria['IdAsesoria'] ? 'selected' : ''; ?>>
+                                <?php echo htmlspecialchars("Asesoría {$asesoria['IdAsesoria']} - Matricula {$asesoria['Matricula']}"); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <br><br>
 
                     <label for="alumno">Selecciona un Alumno:</label>
                     <select id="alumno" name="matricula" required>
@@ -335,28 +347,27 @@ sqlsrv_close($conn);
                         <?php foreach ($alumnos as $alumno): ?>
                             <option value="<?php echo htmlspecialchars($alumno['Matricula']); ?>"
                                 <?php echo isset($matricula) && $matricula == $alumno['Matricula'] ? 'selected' : ''; ?>>
-                                <?php echo htmlspecialchars($alumno['Nombre'] . ' ' . $alumno['ApellidoPaterno'] . ' ' . $alumno['ApellidoMaterno']); ?>
+                                <?php echo htmlspecialchars($alumno['Matricula'] . ' - ' . $alumno['Nombre'] . ' ' . $alumno['ApellidoPaterno'] . ' ' . $alumno['ApellidoMaterno']); ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
                     <br><br>
-
-                    <!-- Selección de Asignatura -->
                     <label for="asignatura">Selecciona una Asignatura:</label>
                     <select id="asignatura" name="idAsignatura" required>
                         <option value="">Selecciona una asignatura</option>
                         <?php foreach ($asignaturas as $asignatura): ?>
                             <option value="<?php echo htmlspecialchars($asignatura['IdAsignatura']); ?>"
                                 <?php echo isset($idAsignatura) && $idAsignatura == $asignatura['IdAsignatura'] ? 'selected' : ''; ?>>
-                                <?php echo htmlspecialchars($asignatura['Nombre']); ?>
+                                <?php echo htmlspecialchars($asignatura['IdAsignatura'] . ' - ' . $asignatura['Nombre']); ?>
                             </option>
                         <?php endforeach; ?>
                     </select>
                     <br><br>
-                    <input type="text" id="tema" name="n-tema" placeholder="Tema" value="<?php echo htmlspecialchars($tema ?? ''); ?>"
-                        pattern=".{1,255}" title="Máximo 255 caracteres" required>
+                    <input type="text" id="tema" name="n-tema" placeholder="Tema"
+                        value="<?php echo htmlspecialchars($tema ?? ''); ?>" pattern=".{1,255}" title="Máximo 255 caracteres" required>
                     <br><br>
-                    <input type="time" id="horario" name="n-horario" placeholder="Horario" value="<?php echo htmlspecialchars($horario ?? ''); ?>" required>
+                    <input type="time" id="horario" name="n-horario" placeholder="Horario"
+                        value="<?php echo htmlspecialchars($horario ?? ''); ?>" required>
                     <br><br>
                     <input type="number" id="totalHoras" name="n-totalHoras" placeholder="Total Horas"
                         value="<?php echo htmlspecialchars($totalHoras ?? ''); ?>" min="1" max="12" required>
@@ -364,15 +375,31 @@ sqlsrv_close($conn);
                     <input type="date" id="fechaRegistro" name="n-fechaRegistro"
                         value="<?php echo htmlspecialchars($fechaRegistro ?? ''); ?>" required>
                     <br><br>
-
                     <button type="button" class="submit" id="cancel-asesoria-button" onclick="closeEditPanel()">Cancelar</button>
                     <button class="submit" type="submit">Actualizar</button>
                 </form>
             </div>
+
+            <div class="emergent-sidebar" id="delete-panel-asesoria">
+                <h3>Eliminar una Asesoría</h3>
+                <br>
+                <form action="/static/scripts/php/delete/delete-asesory.php" method="post">
+                    <select id="asesoria" name="asesoria" required>
+                        <option value="">Selecciona una asesoría</option>
+                        <?php foreach ($asesorias as $asesoria): ?>
+                            <option value="<?php echo htmlspecialchars("{$asesoria['IdAsesoria']}-{$asesoria['Matricula']}-{$asesoria['IdAsignatura']}"); ?>">
+                                <?php echo htmlspecialchars("Asesoría: {$asesoria['IdAsesoria']} - {$asesoria['Matricula']} - {$asesoria['Asignatura']}"); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                    <br><br>
+
+                    <button type="button" class="submit" id="cancel-delete-button" onclick="closeDeletePanel()">Cancelar</button>
+                    <button class="submit" type="submit">Eliminar</button>
+                </form>
+            </div>
         </section>
 
-
-        <!-- FOOTER INTO THE MAIN CONTAINER -->
         <footer>
             <ul class="links">
                 <li>Politicas de seguridad</li>
