@@ -1,6 +1,36 @@
 <?php
 include __DIR__ . '/../../static/scripts/php/connectiondb.php';
 
+$nuevaMatriculas = [];
+$nuevaAsignaturas = [];
+
+// Consulta de matrículas
+$matriculasSql = "SELECT Matricula FROM ALUMNO";
+$matriculasStmt = sqlsrv_query($conn, $matriculasSql);
+
+if ($matriculasStmt === false) {
+    die("Error al consultar matrículas: " . print_r(sqlsrv_errors(), true));
+}
+
+while ($row = sqlsrv_fetch_array($matriculasStmt, SQLSRV_FETCH_ASSOC)) {
+    $nuevaMatriculas[] = $row['Matricula'];
+}
+
+// Consulta de asignaturas
+$asignaturasSql = "SELECT IdAsignatura, Nombre FROM ASIGNATURA";
+$asignaturasStmt = sqlsrv_query($conn, $asignaturasSql);
+
+if ($asignaturasStmt === false) {
+    die("Error al consultar asignaturas: " . print_r(sqlsrv_errors(), true));
+}
+
+while ($row = sqlsrv_fetch_array($asignaturasStmt, SQLSRV_FETCH_ASSOC)) {
+    $nuevaAsignaturas[] = [
+        'IdAsignatura' => $row['IdAsignatura'],
+        'Nombre' => $row['Nombre']
+    ];
+}
+
 $alumnos = [];
 $alumnosSql = "SELECT Matricula, Nombre, ApellidoPaterno, ApellidoMaterno FROM ALUMNO";
 $alumnosStmt = sqlsrv_query($conn, $alumnosSql);
@@ -184,29 +214,34 @@ sqlsrv_close($conn);
                     </div>
 
                     <div class="new-asesory emergent-sidebar" id="new-assesory-container">
-                        <h3>Registrar nueva asesoria</h3>
+                        <h3>Registrar nueva asesoría</h3>
 
-                        <p>Puedes regsitrar una nueva asesoria para los estudiantes</p>
+                        <p>Puedes registrar una nueva asesoría para los estudiantes</p>
 
                         <form action="/./static/scripts/php/post/new-asesory.php" method="post">
                             <br>
-                            <select name="matricula" id="matricula" required>
+                            <!-- ComboBox para seleccionar Matrícula -->
+                            <select name="nuevaMatricula" id="nuevaMatricula" required>
                                 <option value="">Seleccione una matrícula</option>
-                                <?php foreach ($matriculas as $matricula): ?>
-                                    <option value="<?php echo htmlspecialchars($matricula); ?>"><?php echo htmlspecialchars($matricula); ?></option>
+                                <?php foreach ($nuevaMatriculas as $matricula): ?>
+                                    <option value="<?php echo htmlspecialchars($matricula); ?>">
+                                        <?php echo htmlspecialchars($matricula); ?>
+                                    </option>
                                 <?php endforeach; ?>
                             </select>
                             <br>
                             <br>
-                            <select name="asignatura" id="asignatura" required>
+                            <!-- ComboBox para seleccionar Asignatura -->
+                            <select name="nuevaAsignatura" id="nuevaAsignatura" required>
                                 <option value="">Seleccione una asignatura</option>
-                                <?php foreach ($asignaturas as $asignatura): ?>
+                                <?php foreach ($nuevaAsignaturas as $asignatura): ?>
                                     <option value="<?php echo htmlspecialchars($asignatura['IdAsignatura']); ?>">
                                         <?php echo htmlspecialchars($asignatura['Nombre']); ?>
                                     </option>
                                 <?php endforeach; ?>
                             </select>
                             <br>
+                            <!-- Otros campos -->
                             <div class="placeholder">
                                 <input class="input" type="text" name="tema" placeholder="Tema" required>
                             </div>
