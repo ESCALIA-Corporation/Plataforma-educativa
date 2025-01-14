@@ -1,6 +1,6 @@
 # Plataforma-educativa
 
-1.2 Stable
+1.3 Stable
 
 ## Descripción del Proyecto
 
@@ -13,13 +13,13 @@ Este proyecto es una aplicación para la administración de asesorías académic
 - **HTML**: Lenguaje de marcado para estructurar el contenido web.
 - **CSS**: Lenguaje de estilos para diseñar la apariencia del contenido web.
 - **JavaScript**: Lenguaje de programación del lado del cliente para interactividad.
-- **PHP Server**: Servidor de php para vscode. (permite conneciones remotas)
+- **PHP Server**: Servidor de PHP integrado para conexiones remotas.
 
-## Contenedores Docker
+## Servidor PHP Integrado
 
-El proyecto está configurado para ejecutarse dentro de contenedores Docker:
-- **Contenedor de Aplicación**: Contiene la aplicación PHP.
-- **Contenedor de Base de Datos**: Contiene el servidor SQL Server.
+El proyecto está configurado para ejecutarse utilizando el servidor de PHP integrado:
+
+- Ejecuta el comando `php -S 0.0.0.0:8000` para iniciar el servidor.
 
 ## Instalación
 
@@ -27,7 +27,7 @@ Para instalar y ejecutar el proyecto, sigue estos pasos:
 
 1. Clona el repositorio.
 2. Navega al directorio del proyecto.
-3. Ejecuta `docker-compose up` para iniciar los contenedores.
+3. Ejecuta `php -S 0.0.0.0:8000` para iniciar el servidor.
 
 ## Contribución
 

@@ -1,3 +1,5 @@
+# INCOMPLETE - Docker implementation: Soon, maybe :)
+
 # Usar la imagen oficial de PHP con Apache
 FROM php:8.0-apache
 
