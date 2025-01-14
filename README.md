@@ -1,6 +1,6 @@
 # Plataforma-educativa
 
-0.0 Stable
+1.2 Stable
 
 ## Descripción del Proyecto
 
@@ -13,6 +13,7 @@ Este proyecto es una aplicación para la administración de asesorías académic
 - **HTML**: Lenguaje de marcado para estructurar el contenido web.
 - **CSS**: Lenguaje de estilos para diseñar la apariencia del contenido web.
 - **JavaScript**: Lenguaje de programación del lado del cliente para interactividad.
+- **PHP Server**: Servidor de php para vscode. (permite conneciones remotas)
 
 ## Contenedores Docker
 
