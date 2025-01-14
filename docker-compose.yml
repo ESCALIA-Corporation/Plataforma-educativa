@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    networks:
+      - mynetwork
+    depends_on:
+      - sqlserver
+
+  sqlserver:
+    image: rapidfort/microsoft-sql-server-2019-ib
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=1234Ma$ter-n00b # Cambia esto por una contraseña segura
+    ports:
+      - "1433:1433" # Exponer el puerto 1433 para conexiones externas
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:

@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: rapidfort/microsoft-sql-server-2019-ib
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=1234Ma$ter-n00b # Cambia esto por una contraseña segura
+    ports:
+      - "1433:1433" # Exponer el puerto 1433 para conexiones externas
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+
+
+# /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 1234Ma$ter-n00b
+
+# php -S 0.0.0.0:8000
