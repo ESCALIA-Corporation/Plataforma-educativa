@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+include __DIR__ . '/../../static/scripts/php/connectiondb.php';
+
+$idPE = $_GET['idPE'] ?? null; // Cambia a $_POST si es necesario
+$nombre = '';
+$responsable = '';
+$programasEducativos = [];
+$programasSql = "SELECT IdPE, ClavePE, Nombre FROM PROGRAMA_EDUCATIVO"; // Asegúrate de que la tabla sea correcta
+$programasStmt = sqlsrv_query($conn, $programasSql);
+
+if ($programasStmt === false) {
+    die(print_r(sqlsrv_errors(), true));
+}
+
+while ($row = sqlsrv_fetch_array($programasStmt, SQLSRV_FETCH_ASSOC)) {
+    $programasEducativos[] = [
+        'IdPE' => $row['IdPE'],
+        'ClavePE' => $row['ClavePE'],
+        'Nombre' => $row['Nombre']
+    ];
+}
+
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,7 +109,7 @@
                 </div>
 
                 <div class="get-admins">
-                    <h3>Lista de Adminsitradores</h3>
+                    <h3>Lista de Administradores</h3>
                     <?php include __DIR__ . '/../../static/scripts/php/get/view-admins.php'; ?>
                 </div>+
 
@@ -121,12 +145,14 @@
                             <input type="text" name="correo" placeholder="Correo Electronico" required>
                         </div>
                         <div class="placeholder">
-                            <select class="combobox" name="programa-educativo" required>
-                                <option>Seleccione Programa Educativo</option>
-                                <option value="1">Gestion Empresarial</option>
-                                <option value="2">Sistemas Computacionales</option>
-                                <option value="3">Arquitectura</option>
-                                <option value="4">Tecnologias de la Informacion y comunicaciones</option>
+                            <select id="programaEducativo" name="programa-educativo" required>
+                                <option value="">Selecciona un programa educativo </option>
+                                <?php foreach ($programasEducativos as $programa): ?>
+                                    <option value="<?php echo htmlspecialchars($programa['IdPE']); ?>"
+                                        <?php echo ($programa['IdPE'] == $idPE) ? 'selected' : ''; ?>>
+                                        <?php echo htmlspecialchars($programa['ClavePE'] . ' - ' . $programa['Nombre']); ?>
+                                    </option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <h4>Datos de usuario</h4>
@@ -191,11 +217,14 @@
                         <div class="placeholder">
                             <input type="text" name="semestre" placeholder="Semestre" required>
                             <input type="text" name="grupo" placeholder="grupo" required>
-                            <select class="combobox" name="programa-educativo" required>
-                                <option value="1">Gestion Empresarial</option>
-                                <option value="2">Sistemas Computacionales</option>
-                                <option value="3">Arquitectura</option>
-                                <option value="4">Tecnologias de la Informacion y comunicaciones</option>
+                            <select id="programaEducativo" name="programa-educativo" required>
+                                <option value="">Selecciona un programa educativo </option>
+                                <?php foreach ($programasEducativos as $programa): ?>
+                                    <option value="<?php echo htmlspecialchars($programa['IdPE']); ?>"
+                                        <?php echo ($programa['IdPE'] == $idPE) ? 'selected' : ''; ?>>
+                                        <?php echo htmlspecialchars($programa['ClavePE'] . ' - ' . $programa['Nombre']); ?>
+                                    </option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
 

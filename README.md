@@ -1,6 +1,6 @@
-# Plataforma-educativa
+# Plataforma educativa
 
-1.3 Stable
+1.3 Stable - Final
 
 ## Descripción del Proyecto
 
@@ -19,7 +19,7 @@ Este proyecto es una aplicación para la administración de asesorías académic
 
 El proyecto está configurado para ejecutarse utilizando el servidor de PHP integrado:
 
-- Ejecuta el comando `php -S 0.0.0.0:8000` para iniciar el servidor.
+- Ejecuta el comando en terminal `php -S 0.0.0.0:8000` para iniciar el servidor.
 
 ## Instalación
 
@@ -27,7 +27,10 @@ Para instalar y ejecutar el proyecto, sigue estos pasos:
 
 1. Clona el repositorio.
 2. Navega al directorio del proyecto.
-3. Ejecuta `php -S 0.0.0.0:8000` para iniciar el servidor.
+3. Ejecuta en la terminal `php -S 0.0.0.0:8000` para iniciar el servidor.
+4. Conectarse a la direccion ip de la computadora servidor y el puerto 8000.
+
+- ejemplo: <http://192.168.1.100:8000>
 
 ## Contribución
 
@@ -45,4 +48,4 @@ Este proyecto está bajo la Licencia MIT. Consulta el archivo `LICENSE` para má
 
 ---
 
-Made with ❤️ by Alejandro Barrinetos and ESCALIA Corporation
+Made with ❤️ by Alejandro Barrientos Escalante and ESCALIA Corporation - January 2025
